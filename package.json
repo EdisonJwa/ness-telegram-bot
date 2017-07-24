@@ -1,0 +1,43 @@
+{
+  "name": "ness-telegram-bot",
+  "version": "1.0.0",
+  "description": "NessBot for Telegram",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "test": "standard"
+  },
+  "author": "Nesffer",
+  "license": "MIT",
+  "dependencies": {
+    "chance": "^1.0.10",
+    "express": "^4.15.3",
+    "gksdud": "^1.0.0",
+    "glob-promise": "^3.1.0",
+    "google": "^2.1.0",
+    "html-entities": "^1.2.1",
+    "mysql": "github:mysqljs/mysql",
+    "node-google-translate-skidz": "^1.1.1",
+    "node-telegram-bot-api": "github:yagop/node-telegram-bot-api#experimental",
+    "phantomjs-prebuilt": "^2.1.14",
+    "ping": "^0.2.2",
+    "promise-mysql": "^3.0.2",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4",
+    "sandbox": "^0.8.6",
+    "text-meme": "^2.3.0",
+    "underscore": "^1.8.3",
+    "uuid": "^3.1.0",
+    "webshot": "^0.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.9.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-async-await": "0.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.3.1",
+    "standard": "^10.0.2"
+  }
+}

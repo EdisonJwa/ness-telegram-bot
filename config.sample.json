@@ -1,0 +1,21 @@
+{
+    "admin": {
+        "ADMINID": 10000000,
+        "ADMINNAME": "Nesffer"
+    },
+    "bot": {
+        "TOKEN": "100000000000000000000000000000000000000000000",
+        "BOTID": 100000000,
+        "BOTNAME": "NessBot",
+        "BOTGROUP": -1000000000000,
+        "TIMEOUT": 300,
+        "CACHETIMEOUT": 3
+    },
+    "db": {
+        "host": "example.com",
+        "port": 3306,
+        "user": "root",
+        "password": "password",
+        "database": "bot"
+    }
+}
