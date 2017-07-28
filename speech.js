@@ -41,5 +41,10 @@ module.exports = {
   },
   'admins': {
     'error': '그룹에서만 사용할 수 있어요!'
+  },
+  'ratio': {
+    'question': '두 숫자를 입력해주세요!',
+    'error': '잘못된 값이에요!',
+    'errorLimit': '연산 범위를 초과했어요!'
   }
 }
