@@ -20,7 +20,7 @@ module.exports = (config, bot) => {
       parse_mode: 'html'
     }
 
-    if (reply.text) {
+    if (reply && 'text' in reply) {
       const text = reply.text
 
       translate(text).then(translated => {
