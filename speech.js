@@ -38,5 +38,8 @@ module.exports = {
   'translate': {
     'question': '번역할 문장을 입력해주세요!',
     'error': '번역 결과가 없어요!'
+  },
+  'admins': {
+    'error': '그룹에서만 사용할 수 있어요!'
   }
 }
