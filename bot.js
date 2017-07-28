@@ -55,6 +55,8 @@ glob('./commands/*.js').then(items => {
     } catch (e) {
       const errMessage = e.code + '\n\n' + e.stack
       bot.sendMessage(ADMINID, errMessage)
+      const cmdName = path.basename(item).split('-')[0]
+      commandsList.push({ name: cmdName, toggle: false })
     }
   }
 }).catch(err => {

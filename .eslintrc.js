@@ -1,7 +1,7 @@
 module.exports = {
     "extends": "standard",
     "plugins": [
-        "standard",
+        "standard"
     ],
     "rules": {
         "object-curly-spacing": ["error", "always"]

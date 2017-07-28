@@ -49,3 +49,4 @@ jspm_packages
 disabled*
 temp
 .vscode
+package-lock.json
