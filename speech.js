@@ -19,5 +19,8 @@ module.exports = {
   'ping': {
     'question': 'Ping이에요!\nIP 또는 Domain을 입력해주세요!',
     'error': 'IPv4 또는 Domain이 아니에요!'
+  },
+  'calc': {
+    'question': '수식을 입력해주세요!'
   }
 }
