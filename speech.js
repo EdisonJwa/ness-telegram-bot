@@ -22,5 +22,12 @@ module.exports = {
   },
   'calc': {
     'question': '수식을 입력해주세요!'
+  },
+  'dday': {
+    'question': '날짜를 형식에 맞춰 입력해주세요!\nex) <code>2018 01 01</code>',
+    'error': '날짜가 아닌 것 같아요!',
+    'today': '오늘이에요!',
+    'past': '일 지났어요!',
+    'future': '일 남았어요!'
   }
 }
