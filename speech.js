@@ -29,5 +29,10 @@ module.exports = {
     'today': '오늘이에요!',
     'past': '일 지났어요!',
     'future': '일 남았어요!'
+  },
+  'currency': {
+    'help': '통화와 배수를 포함해 명령해주세요!\n예시) /환율 KRW 10000',
+    'errorUnit': '통화 코드가 올바르지 않아요!',
+    'errorMultiple': '올바른 배수를 입력하세요!'
   }
 }
