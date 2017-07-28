@@ -34,5 +34,9 @@ module.exports = {
     'help': '통화와 배수를 포함해 명령해주세요!\n예시) /환율 KRW 10000',
     'errorUnit': '통화 코드가 올바르지 않아요!',
     'errorMultiple': '올바른 배수를 입력하세요!'
+  },
+  'translate': {
+    'question': '번역할 문장을 입력해주세요!',
+    'error': '번역 결과가 없어요!'
   }
 }
