@@ -48,6 +48,10 @@ module.exports = {
     'errorLimit': '연산 범위를 초과했어요!'
   },
   'dice': {
-    'question': '단어를 입력해주세요! 🎲'
+    'question': '둘 이상의 단어를 입력해주세요! 🎲'
+  },
+  'pick': {
+    'question': '둘 이상의 단어를 입력해주세요!',
+    'error': '둘 이상의 단어를 입력해주세요!'
   }
 }
