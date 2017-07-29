@@ -10,8 +10,6 @@
   "author": "Nesffer",
   "license": "MIT",
   "dependencies": {
-    "chance": "^1.0.10",
-    "express": "^4.15.3",
     "gksdud": "^1.0.0",
     "glob-promise": "^3.1.0",
     "google": "^2.1.0",
@@ -22,6 +20,7 @@
     "phantomjs-prebuilt": "^2.1.14",
     "ping": "^0.2.2",
     "promise-mysql": "^3.0.2",
+    "random-js": "^1.0.8",
     "request": "^2.81.0",
     "request-promise-native": "^1.0.4",
     "sandbox": "^0.8.6",
