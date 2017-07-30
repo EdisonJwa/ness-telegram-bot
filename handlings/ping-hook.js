@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = (config, bot) => {
   const TIMEOUT = config.bot.TIMEOUT
 
@@ -11,11 +13,15 @@ module.exports = (config, bot) => {
     const options = { reply_to_message_id: messageId }
 
     if (/ping/i.test(text)) {
+      bot.sendChatAction(chatId, 'typing')
       bot.sendMessage(chatId, `Pong! ${Date.now() - now}ms`, options).catch(() => {
+        bot.sendChatAction(chatId, 'typing')
         bot.sendMessage(chatId, '무엥', options)
       })
     } else if (/핑/.test(text)) {
+      bot.sendChatAction(chatId, 'typing')
       bot.sendMessage(chatId, `퐁! ${Date.now() - now}ms`, options).catch(() => {
+        bot.sendChatAction(chatId, 'typing')
         bot.sendMessage(chatId, '무엥', options)
       })
     }
