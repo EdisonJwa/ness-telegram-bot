@@ -76,5 +76,9 @@ module.exports = {
   'leave': {
     'bye': '안녕~',
     'permission': '권한이 없습니다.'
+  },
+  'length': {
+    'question': '길이를 측정할 문자열을 입력해주세요!',
+    'error': '길이를 측정할 수 없어요!'
   }
 }
