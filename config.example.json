@@ -1,21 +1,32 @@
 {
     "admin": {
-        "ADMINID": 10000000,
-        "ADMINNAME": "Nesffer"
+        "ADMINID": 0,
+        "ADMINNAME": ""
     },
     "bot": {
-        "TOKEN": "100000000000000000000000000000000000000000000",
-        "BOTID": 100000000,
-        "BOTNAME": "NessBot",
-        "BOTGROUP": -1000000000000,
+        "TOKEN": "",
+        "BOTID": 0,
+        "BOTNAME": "",
         "TIMEOUT": 300,
         "CACHETIMEOUT": 3
     },
     "db": {
-        "host": "example.com",
+        "host": "",
         "port": 3306,
-        "user": "root",
-        "password": "password",
-        "database": "bot"
+        "user": "",
+        "password": "",
+        "database": ""
+    },
+    "apikey": {
+        "naver": {
+            "Client_Id": "",
+            "Client_Secret": ""
+        },
+        "daumkakao": {
+            "apikey": ""
+        },
+        "openweathermap": {
+            "appid": ""
+        }
     }
 }

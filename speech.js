@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = {
   'error': '무엥',
   'google': {
@@ -53,5 +55,17 @@ module.exports = {
   'pick': {
     'question': '둘 이상의 단어를 입력해주세요!',
     'error': '둘 이상의 단어를 입력해주세요!'
+  },
+  'map': {
+    'questionAddr': '주소를 입력해주세요!',
+    'questionPlace': '장소를 입력해주세요!',
+    'errorAddr': '주소를 찾을 수 없어요!',
+    'errorCoord': '좌표를 찾을 수 없어요!',
+    'errorPlace': '장소를 찾을 수 없어요!'
+  },
+  'weather': {
+    'question': '한국 또는 외국의 주소를 입력해주세요!',
+    'error': '결과가 없어요. 외국이면 영어로 입력해주세요!',
+    'errorRequest': '날씨 서버에 접속할 수 없어요!'
   }
 }
