@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = {
   'error': '무엥',
   'google': {
@@ -71,5 +69,9 @@ module.exports = {
   },
   'contact': {
     'found': '님의 유저 정보를 찾았어요!'
+  },
+  'leave': {
+    'bye': '안녕~',
+    'permission': '권한이 없습니다.'
   }
 }
