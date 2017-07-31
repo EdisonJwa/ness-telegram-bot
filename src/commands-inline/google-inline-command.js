@@ -1,7 +1,7 @@
 const uuid = require('uuid')
 const google = require('../modules/google-search')
 
-const thanConvert = (str) => str.replace('<', '&lt;').replace('>', '&gt;')
+const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
 
 module.exports = (config, bot) => {
   bot.on('inline_query', (msg) => {

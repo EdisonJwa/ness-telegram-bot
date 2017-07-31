@@ -1,6 +1,8 @@
 const google = require('google')
 const speech = require('../speech')
 
+const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
+
 /**
  * if query passed, Return the title, link, description Object.
  * @param {string} query Query
@@ -52,8 +54,6 @@ const search = (query, lang = 'en', simple = false) => {
     })
   })
 }
-
-const thanConvert = (str) => str.replace('<', '&lt;').replace('>', '&gt;')
 
 /**
  * if query passed, Return the title, description Object.

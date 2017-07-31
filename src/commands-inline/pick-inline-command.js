@@ -1,7 +1,7 @@
 const uuid = require('uuid')
 const pick = require('../modules/pick')
 
-const thanConvert = (str) => str.replace('<', '&lt;').replace('>', '&gt;')
+const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
 
 module.exports = (config, bot) => {
   const CACHETIME = config.bot.CACHETIME

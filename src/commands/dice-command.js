@@ -1,7 +1,7 @@
 const dice = require('../modules/dice')
 const speech = require('../speech')
 
-const thanConvert = (str) => str.replace('<', '&lt;').replace('>', '&gt;')
+const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
 
 module.exports = (config, bot) => {
   const BOTNAME = config.bot.BOTNAME
