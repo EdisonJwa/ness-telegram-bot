@@ -7,7 +7,6 @@ module.exports = (config, bot) => {
   const option = { cache_time: CACHETIME }
 
   bot.on('inline_query', (msg) => {
-    console.log(msg)
     const fromFirstName = msg.from.first_name || ''
     const fromLastName = msg.from.last_name || ''
     const userName = msg.from.username || ''
