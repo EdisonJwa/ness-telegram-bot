@@ -1,5 +1,3 @@
-'use strict'
-
 const request = require('request-promise-native')
 const querystring = require('querystring')
 const config = require('../config.json')

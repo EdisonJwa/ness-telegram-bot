@@ -1,5 +1,3 @@
-'use strict'
-
 const speech = require('../speech')
 
 module.exports = (config, bot) => {

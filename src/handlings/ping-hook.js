@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = (config, bot) => {
   const TIMEOUT = config.bot.TIMEOUT
 

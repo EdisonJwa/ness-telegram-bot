@@ -1,5 +1,3 @@
-'use strict'
-
 module.exports = {
   'error': '무엥',
   'google': {
