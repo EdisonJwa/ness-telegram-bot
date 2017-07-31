@@ -85,5 +85,9 @@ module.exports = {
   },
   'markdown': {
     'question': '<a href="https://core.telegram.org/bots/api#markdown-style">Markdown</a>을 입력해주세요!'
+  },
+  'youtube': {
+    'question': '동영상 검색어를 입력해주세요!',
+    'error': '동영상을 찾을 수 없어요!'
   }
 }
