@@ -68,5 +68,8 @@ module.exports = {
     'question': '한국 또는 외국의 주소를 입력해주세요!',
     'error': '결과가 없어요. 외국이면 영어로 입력해주세요!',
     'errorRequest': '날씨 서버에 접속할 수 없어요!'
+  },
+  'contact': {
+    'found': '님의 유저 정보를 찾았어요!'
   }
 }

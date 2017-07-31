@@ -14,19 +14,19 @@ const bot = new TelegramBot(config.bot.TOKEN, { polling: true })
 let BOTNAME = config.bot.BOTNAME
 bot.getMe().then(bot => {
   BOTNAME = bot.username
+  console.log(`Bot Starting @${BOTNAME}!\n`)
 })
 
 // Admin Configuration
 const ADMINID = config.admin.ADMINID
 
-console.log(`Bot Starting @${BOTNAME}!\n`)
 bot.sendMessage(ADMINID, Date())
 
 // '=========================================================================';
 // Event Hooking
 // '=========================================================================';
 
-glob('./handlings/*.js').then(items => {
+glob(path.join(__dirname, 'handlings/*.js')).then(items => {
   for (const item of items) {
     try {
       require(item)(config, bot)
@@ -46,7 +46,7 @@ glob('./handlings/*.js').then(items => {
 const commandsList = []
 const exceptFile = ['status-command.js']
 
-glob('./commands/*.js').then(items => {
+glob(path.join(__dirname, 'commands/*.js')).then(items => {
   for (const item of items) {
     try {
       if (!exceptFile.includes(path.basename(item))) {
@@ -68,7 +68,7 @@ glob('./commands/*.js').then(items => {
 // status Command
 setTimeout(() => {
   try {
-    require('./commands/status-command')(config, bot, commandsList)
+    require(path.join(__dirname, 'commands/status-command'))(config, bot, commandsList)
     commandsList.push({ name: 'status', toggle: true })
   } catch (e) {
     const errMessage = e.code + '\n\n' + e.stack
@@ -80,7 +80,7 @@ setTimeout(() => {
 // Inline Commands
 // '=========================================================================';
 
-glob('./commands-inline/*.js').then(items => {
+glob(path.join(__dirname, 'commands-inline/*.js')).then(items => {
   for (const item of items) {
     try {
       require(item)(config, bot)

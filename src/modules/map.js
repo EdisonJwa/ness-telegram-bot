@@ -10,6 +10,7 @@ if (!APIKEY) throw new Error('DaumKakao APIKEY is missing')
 
 /**
  * If you pass the address, return the name, lat, lon.
+ * {@link https://developers.kakao.com/docs/restapi/local|Kakao Developers}
  * @param {String} query Address
  * @returns {Promise<Object, Object>} Return { name, lat, lon }
  */
@@ -57,6 +58,7 @@ const addr2coord = (query) => {
 
 /**
  * If you pass the coord, return the name, code
+ * {@link https://developers.kakao.com/docs/restapi/local|Kakao Developers}
  * @param {Number} lat Latitude
  * @param {Number} lon Longitude
  * @returns {Promise<Object, Object>} Return { name, code }
@@ -103,6 +105,7 @@ const coord2addr = (lat, lon) => {
 
 /**
  * If you pass the keyword, return the name, distance, address, lat, lon
+ * {@link https://developers.kakao.com/docs/restapi/local|Kakao Developers}
  * @param {Number} lat Latitude
  * @param {Number} lon Longitude
  * @param {String} keyword Keyword
