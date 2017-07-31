@@ -80,5 +80,12 @@ module.exports = {
   'length': {
     'question': '길이를 측정할 문자열을 입력해주세요!',
     'error': '길이를 측정할 수 없어요!'
+  },
+  'html': {
+    'question': '<a href="https://core.telegram.org/bots/api#html-style">HTML</a>을 입력해주세요!',
+    'error': '해당 태그는 지원하지 않아요!\n<a href="https://core.telegram.org/bots/api#html-style">태그 목록</a>에 없거나 태그가 중첩되어 있는지 확인해주세요.'
+  },
+  'markdown': {
+    'question': '<a href="https://core.telegram.org/bots/api#markdown-style">Markdown</a>을 입력해주세요!'
   }
 }
