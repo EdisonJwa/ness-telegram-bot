@@ -61,7 +61,8 @@ module.exports = {
     'questionPlace': '장소를 입력해주세요!',
     'errorAddr': '주소를 찾을 수 없어요!',
     'errorCoord': '좌표를 찾을 수 없어요!',
-    'errorPlace': '장소를 찾을 수 없어요!'
+    'errorPlace': '장소를 찾을 수 없어요!',
+    'errorLocation': 'GPS 신호를 찾을 수 없어요!'
   },
   'weather': {
     'question': '한국 또는 외국의 주소를 입력해주세요!',
