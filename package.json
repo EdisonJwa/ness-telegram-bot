@@ -14,6 +14,7 @@
     "glob-promise": "^3.1.0",
     "google": "^2.1.0",
     "html-entities": "^1.2.1",
+    "mathjs": "^3.15.0",
     "mysql": "github:mysqljs/mysql",
     "node-google-translate-skidz": "^1.1.1",
     "node-telegram-bot-api": "github:yagop/node-telegram-bot-api#experimental",

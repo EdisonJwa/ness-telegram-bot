@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = {
   'error': '무엥',
   'google': {
@@ -21,7 +23,8 @@ module.exports = {
     'error': 'IPv4 또는 Domain이 아니에요!'
   },
   'calc': {
-    'question': '수식을 입력해주세요!'
+    'question': '수식을 입력해주세요!',
+    'error': '계산 결과가 이상해요!'
   },
   'dday': {
     'question': '날짜를 형식에 맞춰 입력해주세요!\nex) <code>2018 01 01</code>',

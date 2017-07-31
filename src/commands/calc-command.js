@@ -25,10 +25,10 @@ module.exports = (config, bot) => {
 
       bot.onReplyToMessage(chatId, messageId, (message) => {
         const messageId = message.message_id
-        const text = message.text
+        const expr = message.text
         const option = { reply_to_message_id: messageId }
 
-        calc(text).then(result => {
+        calc(expr).then(result => {
           bot.sendMessage(chatId, result, option).catch(err => {
             bot.sendMessage(chatId, err.message, option)
           })
@@ -49,9 +49,9 @@ module.exports = (config, bot) => {
     const messageId = msg.message_id
     const chatId = msg.chat.id
     const option = { reply_to_message_id: messageId }
-    const text = match[3]
+    const expr = match[3]
 
-    calc(text).then(result => {
+    calc(expr).then(result => {
       bot.sendMessage(chatId, result, option).catch(err => {
         bot.sendMessage(chatId, err.message, option)
       })
@@ -68,11 +68,11 @@ module.exports = (config, bot) => {
     const messageId = msg.message_id
     const chatId = msg.chat.id
     const option = { reply_to_message_id: messageId }
-    const text = match[1]
+    const expr = match[1]
     const ko = match[1].match(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g) ? match[1].match(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g).length : 0
 
     if (ko === 0) {
-      calc(text).then(result => {
+      calc(expr).then(result => {
         bot.sendMessage(chatId, result, option).catch(err => {
           bot.sendMessage(chatId, err.message, option)
         })
