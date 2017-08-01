@@ -102,5 +102,9 @@ module.exports = {
   enko: {
     question: '변환할 문자를 입력해주세요!',
     onlyText: 'Text만 지원해요!'
+  },
+  koen: {
+    question: '변환할 문자를 입력해주세요!',
+    errorInput: '초성+중성 또는 초성+중성+종성의 한글만 넣어주세요!'
   }
 }
