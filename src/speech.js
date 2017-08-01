@@ -98,5 +98,9 @@ module.exports = {
     question: '코드를 입력 해주세요!',
     error: '',
     onlyText: 'Text만 지원해요!'
+  },
+  enko: {
+    question: '변환할 문자를 입력해주세요!',
+    onlyText: 'Text만 지원해요!'
   }
 }
