@@ -93,5 +93,10 @@ module.exports = {
   papago: {
     question: '번역할 문장을 입력해주세요!',
     error: '번역 결과가 없어요!'
+  },
+  code: {
+    question: '코드를 입력 해주세요!',
+    error: '',
+    onlyText: 'Text만 지원해요!'
   }
 }

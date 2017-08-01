@@ -13,10 +13,10 @@ module.exports = (config, bot) => {
     const messageId = msg.message_id
     const chatId = msg.chat.id
     const option = { reply_to_message_id: messageId }
-    const reply = 'reply_to_message' in msg ? msg.reply_to_message : ''
+    const reply = Reflect.has(msg, 'reply_to_message') ? msg.reply_to_message : ''
 
     if (reply) {
-      if ('text' in reply) {
+      if (Reflect.has(reply, 'text')) {
         const text = reply.text
 
         papago(text).then(translatedText => {
@@ -77,9 +77,9 @@ module.exports = (config, bot) => {
 
     papago(text).then(translatedText => {
       bot.sendChatAction(chatId, 'typing')
-      bot.sendMessage(chatId, translatedText, option).catch(err => {
+      bot.sendMessage(chatId, translatedText, option).catch(() => {
         bot.sendChatAction(chatId, 'typing')
-        bot.sendMessage(chatId, err.message, option)
+        bot.sendMessage(chatId, speech.error, option)
       })
     }).catch(() => {
       bot.sendChatAction(chatId, 'typing')
