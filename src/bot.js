@@ -41,7 +41,7 @@ glob(path.join(__dirname, 'handlings/*.js')).then(items => {
 // Commands
 // '=========================================================================';
 
-const commandsList = []
+const commands = []
 const exceptFile = ['status-command.js']
 
 glob(path.join(__dirname, 'commands/*.js')).then(items => {
@@ -49,14 +49,16 @@ glob(path.join(__dirname, 'commands/*.js')).then(items => {
     try {
       if (!exceptFile.includes(path.basename(item))) {
         require(item)(config, bot)
-        const cmdName = path.basename(item).split('-')[0]
-        commandsList.push({ name: cmdName, toggle: true })
+        const cmd = path.basename(item).split('-')[0]
+        const toggle = true
+        commands.push({ cmd, toggle })
       }
     } catch (e) {
       const errMessage = e.code + '\n\n' + e.stack
       bot.sendMessage(ADMINID, errMessage)
-      const cmdName = path.basename(item).split('-')[0]
-      commandsList.push({ name: cmdName, toggle: false })
+      const cmd = path.basename(item).split('-')[0]
+      const toggle = false
+      commands.push({ cmd, toggle })
     }
   }
 }).catch(err => {
@@ -66,8 +68,10 @@ glob(path.join(__dirname, 'commands/*.js')).then(items => {
 // status Command
 setTimeout(() => {
   try {
-    require(path.join(__dirname, 'commands/status-command'))(config, bot, commandsList)
-    commandsList.push({ name: 'status', toggle: true })
+    const cmd = 'status'
+    const toggle = true
+    commands.push({ cmd, toggle })
+    require(path.join(__dirname, 'commands/status-command'))(config, bot, commands)
   } catch (e) {
     const errMessage = e.code + '\n\n' + e.stack
     bot.sendMessage(ADMINID, errMessage)
