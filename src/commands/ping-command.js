@@ -6,8 +6,8 @@ module.exports = (config, bot) => {
   const TIMEOUT = config.bot.TIMEOUT
 
   const getHTML = (result) => {
-    const output = `<code>Host :</code> ${result.numeric_host}
-<code>Alive:</code> ${result.alive}
+    const output = `<code>Host :</code> ${result.numeric_host || 'None'}
+<code>Alive:</code> ${result.alive || 'None'}
 <code>Time :</code> ${!isNaN(parseFloat(result.time)) ? parseFloat(result.time) + 'ms' : 'None'}
 <code>Min  :</code> ${!isNaN(parseFloat(result.min)) ? parseFloat(result.min) + 'ms' : 'None'}
 <code>Max  :</code> ${!isNaN(parseFloat(result.max)) ? parseFloat(result.max) + 'ms' : 'None'}

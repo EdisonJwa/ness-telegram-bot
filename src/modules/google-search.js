@@ -12,12 +12,12 @@ const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>',
  */
 const search = (query, lang = 'en', simple = false) => {
   google.resultsPerPage = 10
-  google.lang = 'ko'
-  google.tld = 'co.kr'
-  google.nextText = '다음'
 
   // Korean Web
   if (lang === 'ko') {
+    google.lang = 'ko'
+    google.tld = 'co.kr'
+    google.nextText = '다음'
     google.requestOptions = {
       qs: {
         tbs: 'lr:lang_1ko',
@@ -27,31 +27,37 @@ const search = (query, lang = 'en', simple = false) => {
   }
 
   return new Promise((resolve, reject) => {
-    google(query, (err, res) => {
-      if (err) { reject(new Error(err.message)) }
+    try {
+      google(query, (err, res) => {
+        if (err) { reject(new Error(err.message)) }
 
-      const items = []  // Object in Array
+        const items = []  // Object in Array
 
-      if (res) {
-        for (const item of res.links) {
-          if (item.title && item.link && item.description) {
-            if (!simple) {  // google
-              items.push({ title: item.title, link: item.link, description: item.description })
-            } else {  // gg
-              items.push({ title: item.title, link: item.link })
+        if (res) {
+          for (const item of res.links) {
+            if (item.title && item.link && item.description) {
+              if (!simple) {  // google
+                items.push({ title: item.title, link: item.link, description: item.description })
+              } else {  // gg
+                items.push({ title: item.title, link: item.link })
+              }
             }
           }
+        } else {
+          reject(new Error(speech.google.emptyResponse))
         }
-      } else {
-        reject(new Error(speech.google.emptyResponse))
-      }
 
-      if (items.length >= 1) {
-        resolve(items)
-      } else {
-        reject(new Error(speech.google.resultsBelow))
-      }
-    })
+        if (items.length >= 1) {
+          resolve(items)
+        } else {
+          reject(new Error(speech.google.resultsBelow))
+        }
+      })
+    } catch (e) {
+      const errMessage = e.code + '\n\n' + e.stack
+      console.error(errMessage)
+      reject(new Error(speech.google.emptyResponse))
+    }
   })
 }
 
@@ -84,7 +90,7 @@ module.exports.search = search
 module.exports.html = html
 
 if (require.main === module) {
-  require('./google-search').html('Python', 'en', true).then(results => {
+  html('Python', 'en', true).then(results => {
     const output = []
 
     for (const result of results) {
