@@ -14,7 +14,7 @@ module.exports = {
   },
   image: {
     question: '이미지 검색어를 입력해주세요!',
-    error: '앗! 뭔가 잘못된 것 같아요!'
+    error: '앗! 이미지를 찾을 수 없어요!'
   },
   ping: {
     question: 'Ping이에요!\nIP 또는 Domain을 입력해주세요!',
@@ -109,5 +109,9 @@ module.exports = {
   },
   decode: {
     question: '디코드할 문자열을 입력해주세요!'
+  },
+  search: {
+    notSupport: '아직 지원하지 않는 타입이에요!',
+    replyOnly: '답장 전용 명령이에요! 답장에 써주세요!'
   }
 }

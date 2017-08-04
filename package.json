@@ -5,7 +5,7 @@
   "main": "bot.js",
   "scripts": {
     "start": "node src/bot.js",
-    "test": "mocha --reporter nyan",
+    "test": "mocha --reporter nyan --timeout 5000",
     "check": "standard"
   },
   "author": "Nesffer",
