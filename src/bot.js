@@ -76,7 +76,7 @@ setTimeout(() => {
     const errMessage = e.code + '\n\n' + e.stack
     bot.sendMessage(ADMINID, errMessage)
   }
-}, 3000)
+}, 1000)
 
 // '=========================================================================';
 // Inline Commands
