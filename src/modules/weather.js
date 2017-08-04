@@ -9,8 +9,8 @@ const weather = (lat, lon) => {
   return new Promise(async (resolve, reject) => {
     const url = 'http://api.openweathermap.org/data/2.5/weather'
     const units = 'metric'
-    const queryOptions = { lat, lon, units, appid }
-    const options = { url, qs: queryOptions, timeout: 3000, json: true }
+    const params = { lat, lon, units, appid }
+    const options = { url, qs: params, timeout: 3000, json: true }
 
     try {
       const json = await request(options)
@@ -34,8 +34,8 @@ const forecast = (lat, lon) => {
   return new Promise(async (resolve, reject) => {
     const url = 'http://api.openweathermap.org/data/2.5/forecast/daily'
     const units = 'metric'
-    const queryOptions = { lat, lon, units, appid }
-    const options = { url, qs: queryOptions, timeout: 3000, json: true }
+    const params = { lat, lon, units, appid }
+    const options = { url, qs: params, timeout: 3000, json: true }
 
     try {
       const json = await request(options)
@@ -94,8 +94,8 @@ const forecastQuery = (query) => {
   return new Promise(async (resolve, reject) => {
     const url = 'http://api.openweathermap.org/data/2.5/forecast/daily'
     const units = 'metric'
-    const queryOptions = { q: query, units, appid }
-    const options = { url, qs: queryOptions, timeout: 3000, json: true }
+    const params = { q: query, units, appid }
+    const options = { url, qs: params, timeout: 3000, json: true }
 
     try {
       const json = await request(options)
