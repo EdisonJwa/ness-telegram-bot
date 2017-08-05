@@ -2,8 +2,7 @@ const fs = require('fs')
 const util = require('util')
 const path = require('path')
 const table = require('text-table')
-const Uptime = require('../modules/uptime')
-const uptime = new Uptime()
+const uptime = require('../modules/uptime')
 const speech = require('../speech')
 
 const access = util.promisify(fs.access)
@@ -33,7 +32,8 @@ module.exports = (config, bot, commands) => {
     const options = { reply_to_message_id: messageId, parse_mode: 'html' }
 
     const result = []
-    result.push(`활동: ${uptime.format()}\n`)
+    const active = uptime.format(process.uptime() * 1000)
+    result.push(`활동: ${active}\n`)
     if (line) result.push(`신장: ${line} L\n`)
     const memory = process.memoryUsage()
     if (memory && memory.rss) {
