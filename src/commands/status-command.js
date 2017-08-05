@@ -3,7 +3,11 @@ const util = require('util')
 const path = require('path')
 const table = require('text-table')
 const uptime = require('../modules/uptime')
+const config = require('../config')
 const speech = require('../speech')
+
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
 const access = util.promisify(fs.access)
 const readFile = util.promisify(fs.readFile)
@@ -19,11 +23,8 @@ let line = ''
   }
 })()
 
-module.exports = (config, bot, commands) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
-
-  const rCommand = new RegExp('^/(status|상태)(@' + BOTNAME + ')?$', 'i')
+module.exports = (bot, commands) => {
+  const rCommand = new RegExp(`^/(status|상태)(@${BOT_NAME})?$`, 'i')
   bot.onText(rCommand, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
