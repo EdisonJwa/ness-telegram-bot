@@ -2,7 +2,7 @@ const map = require('../modules/map')
 const weather = require('../modules/weather')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
+module.exports = (bot) => {
   bot.on('location', (msg) => {
     const messageId = msg.message_id
     const chatId = msg.chat.id

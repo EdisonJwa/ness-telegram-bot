@@ -1,6 +1,6 @@
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
+module.exports = (bot) => {
   bot.on('contact', (msg) => {
     const messageId = msg.message_id
     const chatId = msg.chat.id
