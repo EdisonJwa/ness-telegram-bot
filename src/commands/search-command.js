@@ -5,7 +5,7 @@ const speech = require('../speech')
 const BOT_NAME = config.BOT_NAME
 const TIMEOUT = config.TIMEOUT
 
-module.exports = (config, bot) => {
+module.exports = (bot) => {
   const rCommand = new RegExp('^/(search|검색)(@' + BOT_NAME + ')?\\s*', 'i')
   bot.onText(rCommand, (msg, match) => {
     const time = Date.now() / 1000

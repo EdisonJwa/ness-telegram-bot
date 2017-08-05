@@ -6,9 +6,9 @@ const speech = require('../speech')
 const BOT_NAME = config.BOT_NAME
 const TIMEOUT = config.TIMEOUT
 
-module.exports = (config, bot) => {
+module.exports = (bot) => {
   // Question Command
-  const rQuestion = new RegExp('^/(decode|디코드)(@' + BOT_NAME + ')?$', 'i')
+  const rQuestion = new RegExp(`^/(decode|디코드)(@${BOT_NAME})?$`, 'i')
   bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
@@ -40,7 +40,7 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const rQuery = new RegExp('^/(decode|디코드)(@' + BOT_NAME + ')?\\s+([\\s\\S]+)', 'i')
+  const rQuery = new RegExp(`^/(decode|디코드)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
   bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return

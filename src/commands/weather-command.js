@@ -6,7 +6,7 @@ const config = require('../config')
 const BOT_NAME = config.BOT_NAME
 const TIMEOUT = config.TIMEOUT
 
-module.exports = (config, bot) => {
+module.exports = (bot) => {
   // Question Command
   const rQuestion = new RegExp('^/(weather|날씨)(@' + BOT_NAME + ')?$', 'i')
   bot.onText(rQuestion, async (msg, match) => {
