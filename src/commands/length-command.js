@@ -1,12 +1,13 @@
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
+module.exports = (bot) => {
   // Question Command
-  const lengthRegex = new RegExp('^/(length|len|길이)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(lengthRegex, (msg, match) => {
+  const rQuestion = new RegExp(`^/(length|len|길이)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -15,8 +16,9 @@ module.exports = (config, bot) => {
     const option = { reply_to_message_id: messageId }
 
     if (reply) {
-      const text = reply.text
-      if (text) {
+      if (reply.text) {
+        const text = reply.text
+
         bot.sendChatAction(chatId, 'typing')
         bot.sendMessage(chatId, text.length, option).catch(() => {
           bot.sendChatAction(chatId, 'typing')
@@ -57,8 +59,8 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const lengthArgRegex = new RegExp('^/(length|len|길이)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
-  bot.onText(lengthArgRegex, (msg, match) => {
+  const rQuery = new RegExp(`^/(length|len|길이)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
+  bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
