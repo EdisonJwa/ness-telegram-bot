@@ -1,15 +1,16 @@
 const _ = require('underscore')
 const youtube = require('../modules/youtube')
+const config = require('../config')
 const speech = require('../speech')
+
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
 const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
-
+module.exports = (bot) => {
   // Question Command
-  const rQuestion = new RegExp('^/(youtube|video|유튜브|비디오|y|v)(@' + BOTNAME + ')?$', 'i')
+  const rQuestion = new RegExp(`^/(youtube|video|유튜브|비디오|y)(@${BOT_NAME})?$`, 'i')
   bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
@@ -49,7 +50,7 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const rQuery = new RegExp('^/(youtube|video|유튜브|비디오|y|v)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
+  const rQuery = new RegExp(`^/(youtube|video|유튜브|비디오|y)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
   bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return

@@ -1,13 +1,14 @@
 const pick = require('../modules/pick')
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
+module.exports = (bot) => {
   // Question Command
-  const pickRegex = new RegExp('^/(pick|골라|선택)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(pickRegex, (msg, match) => {
+  const rQuestion = new RegExp(`^/(pick|choice|골라|선택|p)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -18,6 +19,7 @@ module.exports = (config, bot) => {
       parse_mode: 'html'
     }
 
+    bot.sendChatAction(chatId, 'typing')
     bot.sendMessage(chatId, speech.pick.question, options).then(sent => {
       const messageId = sent.message_id
       const chatId = sent.chat.id
@@ -28,7 +30,9 @@ module.exports = (config, bot) => {
         const option = { reply_to_message_id: messageId }
         const output = pick(text)
 
+        bot.sendChatAction(chatId, 'typing')
         bot.sendMessage(chatId, output, option).catch(() => {
+          bot.sendChatAction(chatId, 'typing')
           bot.sendMessage(chatId, speech.error, option)
         })
       })
@@ -36,7 +40,7 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const pickArgRegex = new RegExp('^/(pick|골라|선택)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
+  const pickArgRegex = new RegExp(`^/(pick|choice|골라|선택|p)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
   bot.onText(pickArgRegex, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
@@ -46,7 +50,9 @@ module.exports = (config, bot) => {
     const option = { reply_to_message_id: messageId }
     const output = pick(text)
 
+    bot.sendChatAction(chatId, 'typing')
     bot.sendMessage(chatId, output, option).catch(() => {
+      bot.sendChatAction(chatId, 'typing')
       bot.sendMessage(chatId, speech.error, option)
     })
   })
