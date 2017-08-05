@@ -1,15 +1,16 @@
 const map = require('../modules/map')
+const config = require('../config')
 const speech = require('../speech')
 
 const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
+module.exports = (bot) => {
   // Question Command
-  const ddayRegex = new RegExp('^/(place|장소|p)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(ddayRegex, (msg, match) => {
+  const rQuestion = new RegExp(`^/(place|장소)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -76,8 +77,8 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const ddayArgRegex = new RegExp('^/(place|장소|p)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
-  bot.onText(ddayArgRegex, (msg, match) => {
+  const rQuery = new RegExp(`^/(place|장소)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
+  bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id

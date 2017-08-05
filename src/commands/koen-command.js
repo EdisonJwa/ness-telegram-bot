@@ -1,12 +1,13 @@
 const roman = require('../modules/roman')
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
+module.exports = (bot) => {
   // Question Command
-  const rQuestion = new RegExp('^/(koen|gksdud|한영|k)(@' + BOTNAME + ')?$', 'i')
+  const rQuestion = new RegExp(`^/(koen|gksdud|한영|k)(@${BOT_NAME})?$`, 'i')
   bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
@@ -18,6 +19,7 @@ module.exports = (config, bot) => {
       parse_mode: 'html'
     }
 
+    bot.sendChatAction(chatId, 'typing')
     bot.sendMessage(chatId, speech.koen.question, options).then(sent => {
       const messageId = sent.message_id
       const chatId = sent.chat.id
@@ -31,12 +33,14 @@ module.exports = (config, bot) => {
           const result = []
 
           for (const item of items) {
-            await result.push(`${item.name}\n`)
-            await result.push(`<code>${item.progress}</code> ${item.num}%\n`)
+            await result.push(`${item.name}`)
+            await result.push(`<code>${item.progress}</code> ${item.num}%`)
           }
 
-          bot.sendMessage(chatId, result.join(''), options)
+          bot.sendChatAction(chatId, 'typing')
+          bot.sendMessage(chatId, result.join('\n'), options)
         }).catch(err => {
+          bot.sendChatAction(chatId, 'typing')
           bot.sendMessage(chatId, err.message, options)
         })
       })
@@ -44,7 +48,7 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const rQuery = new RegExp('^/(koen|gksdud|한영|k)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
+  const rQuery = new RegExp(`^/(koen|gksdud|한영|k)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
   bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
@@ -57,17 +61,15 @@ module.exports = (config, bot) => {
       const result = []
 
       for (const item of items) {
-        await result.push(`${item.name}\n`)
-        await result.push(`<code>${item.progress}</code> ${item.num}%\n`)
+        await result.push(`${item.name}`)
+        await result.push(`<code>${item.progress}</code> ${item.num}%`)
       }
 
-      bot.sendMessage(chatId, result.join(''), options)
+      bot.sendChatAction(chatId, 'typing')
+      bot.sendMessage(chatId, result.join('\n'), options)
     }).catch(err => {
+      bot.sendChatAction(chatId, 'typing')
       bot.sendMessage(chatId, err.message, options)
     })
   })
 }
-
-/**
- * TODO: koen-inline-command.js 구현
- */

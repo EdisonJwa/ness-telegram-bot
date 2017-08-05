@@ -1,22 +1,23 @@
 const papago = require('../modules/papago')
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
+module.exports = (bot) => {
   // Question Command
-  const papagoRegex = new RegExp('^/(papago|파파고|p)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(papagoRegex, (msg, match) => {
+  const rQuestion = new RegExp(`^/(papago|파파고|p)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
     const chatId = msg.chat.id
     const option = { reply_to_message_id: messageId }
-    const reply = Reflect.has(msg, 'reply_to_message') ? msg.reply_to_message : ''
+    const reply = msg.reply_to_message
 
     if (reply) {
-      if (Reflect.has(reply, 'text')) {
+      if (reply.text) {
         const text = reply.text
 
         papago(text).then(translatedText => {
@@ -66,8 +67,8 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const papagoArgRegex = new RegExp('^/(papago|파파고|p)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
-  bot.onText(papagoArgRegex, (msg, match) => {
+  const rQuery = new RegExp(`^/(papago|파파고|p)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
+  bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id

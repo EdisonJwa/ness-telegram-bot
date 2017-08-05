@@ -1,13 +1,14 @@
 const ratio = require('../modules/ratio')
 const speech = require('../speech')
+const config = require('../config')
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
+module.exports = (bot) => {
   // Question Command
-  const ratioRegex = new RegExp('^/(ratio|비율)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(ratioRegex, (msg, match) => {
+  const rQuestion = new RegExp(`^/(ratio|비율)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -18,6 +19,7 @@ module.exports = (config, bot) => {
       parse_mode: 'html'
     }
 
+    bot.sendChatAction(chatId, 'typing')
     bot.sendMessage(chatId, speech.ratio.question, options).then(sent => {
       const messageId = sent.message_id
       const chatId = sent.chat.id
@@ -27,11 +29,15 @@ module.exports = (config, bot) => {
         const option = { reply_to_message_id: messageId }
 
         ratio(text).then(result => {
+          bot.sendChatAction(chatId, 'typing')
           bot.sendMessage(chatId, result, option).catch(err => {
+            bot.sendChatAction(chatId, 'typing')
             bot.sendMessage(chatId, err.message, option)
           })
         }).catch(err => {
+          bot.sendChatAction(chatId, 'typing')
           bot.sendMessage(chatId, err.message, option).catch(err => {
+            bot.sendChatAction(chatId, 'typing')
             bot.sendMessage(chatId, err.message, option)
           })
         })
@@ -40,8 +46,8 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const ratioArgRegex = new RegExp('^/(ratio|비율)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
-  bot.onText(ratioArgRegex, (msg, match) => {
+  const rQuery = new RegExp(`^/(ratio|비율)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
+  bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -50,11 +56,15 @@ module.exports = (config, bot) => {
     const option = { reply_to_message_id: messageId }
 
     ratio(text).then(result => {
+      bot.sendChatAction(chatId, 'typing')
       bot.sendMessage(chatId, result, option).catch(err => {
+        bot.sendChatAction(chatId, 'typing')
         bot.sendMessage(chatId, err.message, option)
       })
     }).catch(err => {
+      bot.sendChatAction(chatId, 'typing')
       bot.sendMessage(chatId, err.message, option).catch(err => {
+        bot.sendChatAction(chatId, 'typing')
         bot.sendMessage(chatId, err.message, option)
       })
     })

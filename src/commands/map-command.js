@@ -1,13 +1,14 @@
 const map = require('../modules/map')
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
+module.exports = (bot) => {
   // Question Command
-  const mapRegex = new RegExp('^/(map|지도)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(mapRegex, (msg, match) => {
+  const rQuestion = new RegExp(`^/(map|지도)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -42,8 +43,8 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const mapArgRegex = new RegExp('^/(map|지도)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
-  bot.onText(mapArgRegex, (msg, match) => {
+  const rQuery = new RegExp(`^/(map|지도)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
+  bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
