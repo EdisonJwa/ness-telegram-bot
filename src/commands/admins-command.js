@@ -1,11 +1,12 @@
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
-  const adminsRegex = new RegExp('^/(admins|관리자)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(adminsRegex, (msg, match) => {
+module.exports = (bot) => {
+  const rCommand = new RegExp(`^/(admins|관리자)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rCommand, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id

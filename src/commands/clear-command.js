@@ -1,21 +1,22 @@
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const config = require('../config')
 
-  const clearRegex = new RegExp('^/(clear|cls|청소)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(clearRegex, (msg, match) => {
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
+
+module.exports = (bot) => {
+  // Command
+  const rCommand = new RegExp(`^/(clear|cls|청소)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rCommand, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const chatId = msg.chat.id
 
-    let output = '지우는 중...\n'
-
+    let result = '지우는 중...\n'
     for (let i = 0; i < 45; i++) {
-      output += '\n'
+      result += '\n'
     }
+    result += '지웠다!'
 
-    output += '지웠다!'
-
-    bot.sendMessage(chatId, output)
+    bot.sendMessage(chatId, result)
   })
 }

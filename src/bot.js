@@ -6,19 +6,14 @@ const glob = require('glob-promise')
 const path = require('path')
 const TelegramBot = require('node-telegram-bot-api')
 
-const config = require(process.argv[2] || './config.json')
-const bot = new TelegramBot(config.bot.TOKEN, { polling: true })
+const config = require('./config')
+const ADMIN_ID = config.ADMIN_ID
+const BOT_NAME = config.BOT_NAME
 
-let BOTNAME = config.bot.BOTNAME
-bot.getMe().then(bot => {
-  BOTNAME = bot.username
-  console.log(`Bot Starting @${BOTNAME}!\n`)
-})
+const bot = new TelegramBot(config.BOT_TOKEN, { polling: true })
 
-// Admin Configuration
-const ADMINID = config.admin.ADMINID
-
-bot.sendMessage(ADMINID, Date())
+console.log(`Bot Starting @${BOT_NAME}!\n`)
+bot.sendMessage(ADMIN_ID, Date())
 
 // '=========================================================================';
 // Event Hooking
@@ -27,14 +22,14 @@ bot.sendMessage(ADMINID, Date())
 glob(path.join(__dirname, 'handlings/*.js')).then(items => {
   for (const item of items) {
     try {
-      require(item)(config, bot)
+      require(item)(bot)
     } catch (e) {
       const errMessage = e.code + '\n\n' + e.stack
-      bot.sendMessage(ADMINID, errMessage)
+      bot.sendMessage(ADMIN_ID, errMessage)
     }
   }
 }).catch(err => {
-  bot.sendMessage(ADMINID, err.message)
+  bot.sendMessage(ADMIN_ID, err.message)
 })
 
 // '=========================================================================';
@@ -48,21 +43,21 @@ glob(path.join(__dirname, 'commands/*.js')).then(items => {
   for (const item of items) {
     try {
       if (!exceptFile.includes(path.basename(item))) {
-        require(item)(config, bot)
+        require(item)(bot)
         const cmd = path.basename(item).split('-')[0]
         const toggle = true
         commands.push({ cmd, toggle })
       }
     } catch (e) {
       const errMessage = e.code + '\n\n' + e.stack
-      bot.sendMessage(ADMINID, errMessage)
+      bot.sendMessage(ADMIN_ID, errMessage)
       const cmd = path.basename(item).split('-')[0]
       const toggle = false
       commands.push({ cmd, toggle })
     }
   }
 }).catch(err => {
-  bot.sendMessage(ADMINID, err.message)
+  bot.sendMessage(ADMIN_ID, err.message)
 })
 
 // status Command
@@ -71,10 +66,10 @@ setTimeout(() => {
     const cmd = 'status'
     const toggle = true
     commands.push({ cmd, toggle })
-    require(path.join(__dirname, 'commands/status-command'))(config, bot, commands)
+    require(path.join(__dirname, 'commands/status-command'))(bot, commands)
   } catch (e) {
     const errMessage = e.code + '\n\n' + e.stack
-    bot.sendMessage(ADMINID, errMessage)
+    bot.sendMessage(ADMIN_ID, errMessage)
   }
 }, 1000)
 
@@ -85,12 +80,12 @@ setTimeout(() => {
 glob(path.join(__dirname, 'commands-inline/*.js')).then(items => {
   for (const item of items) {
     try {
-      require(item)(config, bot)
+      require(item)(bot)
     } catch (e) {
       const errMessage = e.code + '\n\n' + e.stack
-      bot.sendMessage(ADMINID, errMessage)
+      bot.sendMessage(ADMIN_ID, errMessage)
     }
   }
 }).catch(err => {
-  bot.sendMessage(ADMINID, err.message)
+  bot.sendMessage(ADMIN_ID, err.message)
 })
