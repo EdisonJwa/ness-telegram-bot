@@ -1,13 +1,14 @@
 const google = require('../modules/google-search')
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
-  const changeKorean = speech.google.changeKorean
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
+const changeKorean = speech.google.changeKorean
 
+module.exports = (bot) => {
   // Question Command
-  const googleRegex = new RegExp('^/(google|구글|g|gg)(@' + BOTNAME + ')?$', 'i')
+  const googleRegex = new RegExp(`^/(google|구글|g|gg)(@${BOT_NAME})?$`, 'i')
   bot.onText(googleRegex, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
@@ -21,6 +22,7 @@ module.exports = (config, bot) => {
       parse_mode: 'html'
     }
 
+    bot.sendChatAction(chatId, 'typing')
     bot.sendMessage(chatId, speech.google.question, options).then(sent => {
       const messageId = sent.message_id
       const chatId = sent.chat.id
@@ -40,7 +42,7 @@ module.exports = (config, bot) => {
           disable_web_page_preview: true
         }
 
-        google.html(text, '', simple).then(results => {
+        google.html(text, 'en', simple).then(results => {
           const output = []
 
           for (const result of results) {
@@ -49,6 +51,7 @@ module.exports = (config, bot) => {
             }
           }
 
+          bot.sendChatAction(chatId, 'typing')
           bot.sendMessage(chatId, output.join('\n\n'), options).then(sent => {
             bot.on('callback_query', answer => {
               if (answer.data === 'ko') {
@@ -69,6 +72,7 @@ module.exports = (config, bot) => {
                     }
                   }
 
+                  bot.sendChatAction(chatId, 'typing')
                   bot.editMessageText(output.join('\n\n'), options).catch(err => {
                     bot.answerCallbackQuery(answer.id, err.message)
                   })
@@ -79,10 +83,12 @@ module.exports = (config, bot) => {
             })
           // Fail sendMessage()
           }).catch(err => {
+            bot.sendChatAction(chatId, 'typing')
             bot.sendMessage(chatId, err.message, option)
           })
         // Fail google.html()
         }).catch(err => {
+          bot.sendChatAction(chatId, 'typing')
           bot.sendMessage(chatId, err.message, option)
         })
       })
@@ -90,8 +96,8 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const googleArgRegex = new RegExp('^/(google|구글|gg)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
-  bot.onText(googleArgRegex, (msg, match) => {
+  const rQuery = new RegExp(`^/(google|구글|gg)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
+  bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -112,7 +118,7 @@ module.exports = (config, bot) => {
       disable_web_page_preview: true
     }
 
-    google.html(text, '', simple).then(results => {
+    google.html(text, 'en', simple).then(results => {
       const output = []
 
       for (const result of results) {
@@ -121,6 +127,7 @@ module.exports = (config, bot) => {
         }
       }
 
+      bot.sendChatAction(chatId, 'typing')
       bot.sendMessage(chatId, output.join('\n\n'), options).then(sent => {
         bot.on('callback_query', answer => {
           if (answer.data === 'ko') {
@@ -142,6 +149,7 @@ module.exports = (config, bot) => {
                 }
               }
 
+              bot.sendChatAction(chatId, 'typing')
               bot.editMessageText(output.join('\n\n'), options).catch(err => {
                 bot.answerCallbackQuery(answer.id, err.message)
               })
@@ -152,10 +160,12 @@ module.exports = (config, bot) => {
         })
       // Fail sendMessage()
       }).catch(err => {
+        bot.sendChatAction(chatId, 'typing')
         bot.sendMessage(chatId, err.message, option)
       })
     // Fail google.html()
     }).catch(err => {
+      bot.sendChatAction(chatId, 'typing')
       bot.sendMessage(chatId, err.message, option)
     })
   })
@@ -192,6 +202,7 @@ module.exports = (config, bot) => {
         }
       }
 
+      bot.sendChatAction(chatId, 'typing')
       bot.sendMessage(chatId, output.join('\n\n'), options).then(sent => {
         bot.on('callback_query', answer => {
           if (answer.data === 'ko') {
@@ -214,6 +225,7 @@ module.exports = (config, bot) => {
                 }
               }
 
+              bot.sendChatAction(chatId, 'typing')
               bot.editMessageText(output.join('\n\n'), options).catch(err => {
                 bot.answerCallbackQuery(answer.id, err.message)
               })
@@ -224,10 +236,12 @@ module.exports = (config, bot) => {
         })
       // Fail sendMessage()
       }).catch(err => {
+        bot.sendChatAction(chatId, 'typing')
         bot.sendMessage(chatId, err.message, option)
       })
     // Fail google.html()
     }).catch(err => {
+      bot.sendChatAction(chatId, 'typing')
       bot.sendMessage(chatId, err.message, option)
     })
   })
