@@ -41,7 +41,8 @@ module.exports = (bot, commands) => {
       const weight = (memory.rss / 1024 / 1024).toFixed(1)
       result.push(`무게: ${weight} MB\n\n`)
     }
-    result.push('모듈:\n')
+    const count = (commands || []).length
+    result.push(`모듈(${count}):\n`)
 
     ;(() => {
       return new Promise((resolve) => {
