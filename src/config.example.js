@@ -13,8 +13,5 @@ module.exports = {
   KAKAO_API_KEY: process.env.KAKAO_API_KEY || '',
   OPENWEATHERMAP_API_KEY: process.env.OPENWEATHERMAP_API_KEY || '',
   GOOGLE_API_KEY: process.env.GOOGLE_API_KEY || '',
-  GOOGLE_CX_CO_KR: process.env.GOOGLE_CX_CO_KR || '',
-  GOOGLE_CX_CO_JP: process.env.GOOGLE_CX_CO_JP || '',
-  GOOGLE_CX_COM: process.env.GOOGLE_CX_COM || '',
   GLOT_API_KEY: process.env.GLOT_API_KEY || ''
 }

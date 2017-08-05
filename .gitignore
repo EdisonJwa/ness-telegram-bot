@@ -50,3 +50,5 @@ disabled*
 temp
 .vscode
 package-lock.json
+line.txt
+config.js
