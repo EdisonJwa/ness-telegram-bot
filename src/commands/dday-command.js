@@ -1,13 +1,14 @@
 const dday = require('../modules/dday')
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
+module.exports = (bot) => {
   // Question Command
-  const ddayRegex = new RegExp('^/(dday|디데이|d)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(ddayRegex, (msg, match) => {
+  const rQuestion = new RegExp(`^/(dday|디데이|d)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -43,8 +44,8 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const ddayArgRegex = new RegExp('^/(dday|디데이|d)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
-  bot.onText(ddayArgRegex, (msg, match) => {
+  const rQuery = new RegExp(`^/(dday|디데이|d)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
+  bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id

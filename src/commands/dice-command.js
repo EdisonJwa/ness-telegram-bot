@@ -1,15 +1,16 @@
 const dice = require('../modules/dice')
+const config = require('../config')
 const speech = require('../speech')
+
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
 const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
-
+module.exports = (bot) => {
   // Question Command
-  const chanceRegex = new RegExp('^/(dice|주사위|확률)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(chanceRegex, (msg, match) => {
+  const rQuestion = new RegExp(`^/(dice|주사위|확률)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rQuestion, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -54,8 +55,8 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const chanceArgRegex = new RegExp('^/(dice|주사위|확률)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
-  bot.onText(chanceArgRegex, (msg, match) => {
+  const rQuery = new RegExp(`^/(dice|주사위|확률)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
+  bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id

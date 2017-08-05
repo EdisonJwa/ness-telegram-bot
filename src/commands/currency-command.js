@@ -1,13 +1,14 @@
 const currency = require('../modules/currency')
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const BOTNAME = config.bot.BOTNAME
-  const TIMEOUT = config.bot.TIMEOUT
+const BOT_NAME = config.BOT_NAME
+const TIMEOUT = config.TIMEOUT
 
+module.exports = (bot) => {
   // Command
-  const calcRegex = new RegExp('^/(currency|환율)(@' + BOTNAME + ')?$', 'i')
-  bot.onText(calcRegex, (msg, match) => {
+  const rCommand = new RegExp(`^/(currency|환율)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rCommand, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -102,8 +103,8 @@ module.exports = (config, bot) => {
   })
 
   // Query Command
-  const calcArgRegex = new RegExp('^/(currency|환율)(@' + BOTNAME + ')?\\s+([\\s\\S]+)', 'i')
-  bot.onText(calcArgRegex, (msg, match) => {
+  const rQuery = new RegExp(`^/(currency|환율)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
+  bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
