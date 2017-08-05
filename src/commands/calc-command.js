@@ -61,11 +61,11 @@ module.exports = (bot) => {
     })
   })
 
-  // Equal Comman
-  const equalArgRegex = new RegExp('^=(.+)', 'i')
-  bot.onText(equalArgRegex, (msg, match) => {
+  // Equal Command
+  const rEqual = new RegExp('^=(\\S+[\\s\\S]*)', 'i')
+  bot.onText(rEqual, (msg, match) => {
     const time = Date.now() / 1000
-    if (time - msg.date > config.bot.TIMEOUT) return
+    if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
     const chatId = msg.chat.id
     const option = { reply_to_message_id: messageId }
