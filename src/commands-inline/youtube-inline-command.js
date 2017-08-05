@@ -1,13 +1,14 @@
 const uuid = require('uuid')
 const youtube = require('../modules/youtube')
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const CACHETIME = config.bot.CACHETIME
-  const option = { cache_time: CACHETIME }
+const CACHE_TIMEOUT = config.CACHE_TIMEOUT
+const option = { cache_time: CACHE_TIMEOUT }
 
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
-    const regex = /^(youtube|video|유튜브|비디오|y|v) ([\s\S]+)/i
+    const regex = /^(youtube|video|유튜브|비디오|y)\s+([\s\S]+)/i
     if (regex.test(msg.query)) {
       const query = msg.query.match(regex)[2].trim()
 

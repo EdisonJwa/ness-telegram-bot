@@ -1,12 +1,13 @@
 const uuid = require('uuid')
 const ratio = require('../modules/ratio')
+const config = require('../config')
 
-module.exports = (config, bot) => {
-  const CACHETIME = config.bot.CACHETIME
-  const option = { cache_time: CACHETIME }
+const CACHE_TIMEOUT = config.CACHE_TIMEOUT
+const option = { cache_time: CACHE_TIMEOUT }
 
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
-    const rRatio = /^(ratio|비율) ([\s\S]+)/i
+    const rRatio = /^(ratio|비율)\s+([\s\S]+)/i
     if (rRatio.test(msg.query)) {
       const text = msg.query.match(rRatio)[2].trim()
 

@@ -1,11 +1,12 @@
 const uuid = require('uuid')
+const config = require('../config')
+
+const CACHE_TIME = config.CACHE_TIMEOUT
+const option = { cache_time: CACHE_TIME }
 
 const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
 
-module.exports = (config, bot) => {
-  const CACHETIME = config.bot.CACHETIME
-  const option = { cache_time: CACHETIME }
-
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
     const fromFirstName = msg.from.first_name || ''
     const fromLastName = msg.from.last_name || ''

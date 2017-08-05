@@ -1,12 +1,13 @@
 const uuid = require('uuid')
 const papago = require('../modules/papago')
+const config = require('../config')
 
-module.exports = (config, bot) => {
-  const CACHETIME = config.bot.CACHETIME
-  const option = { cache_time: CACHETIME }
+const CACHE_TIMEOUT = config.CACHE_TIMEOUT
+const option = { cache_time: CACHE_TIMEOUT }
 
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
-    const rPapago = /^(papago|파파고|p) ([\s\S]+)/i
+    const rPapago = /^(papago|파파고|p)\s+([\s\S]+)/i
     if (rPapago.test(msg.query)) {
       const text = msg.query.match(rPapago)[2].trim()
       papago(text).then(translatedText => {

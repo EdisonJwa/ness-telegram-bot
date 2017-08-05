@@ -1,13 +1,14 @@
 const uuid = require('uuid')
 const map = require('../modules/map')
+const config = require('../config')
 const speech = require('../speech')
 
-module.exports = (config, bot) => {
-  const CACHETIME = config.bot.CACHETIME
-  const option = { cache_time: CACHETIME }
+const CACHE_TIMEOUT = config.CACHE_TIMEOUT
+const option = { cache_time: CACHE_TIMEOUT }
 
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
-    const rPlace = /^(place|장소|p) ([\s\S]+)/i
+    const rPlace = /^(place|장소|p)\s+([\s\S]+)/i
     if (rPlace.test(msg.query)) {
       const keyword = msg.query.match(rPlace)[2].trim()
       if (keyword && msg.location) {

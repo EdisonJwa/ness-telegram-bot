@@ -1,6 +1,6 @@
 const uuid = require('uuid')
 
-module.exports = (config, bot) => {
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
     const rClear = /^(clear|청소)$/i
     if (rClear.test(msg.query)) {

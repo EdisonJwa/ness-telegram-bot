@@ -1,12 +1,13 @@
 const uuid = require('uuid')
 const translate = require('../modules/google-translate')
+const config = require('../config')
 
-module.exports = (config, bot) => {
-  const CACHETIME = config.bot.CACHETIME
-  const option = { cache_time: CACHETIME }
+const CACHE_TIMEOUT = config.CACHE_TIMEOUT
+const option = { cache_time: CACHE_TIMEOUT }
 
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
-    const rTranslate = /^(translate|translation|tr|번역) ([\s\S]+)/i
+    const rTranslate = /^(translate|translation|tr|번역)\s+([\s\S]+)/i
     if (rTranslate.test(msg.query)) {
       const text = msg.query.match(rTranslate)[2].trim()
 

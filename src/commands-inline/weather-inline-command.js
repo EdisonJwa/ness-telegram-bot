@@ -7,7 +7,7 @@ const config = require('../config')
 const CACHE_TIMEOUT = config.CACHE_TIMEOUT
 const option = { cache_time: CACHE_TIMEOUT }
 
-module.exports = (config, bot) => {
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
     const rWeather = /^(weather|날씨) ([\s\S]+)/i
     if (rWeather.test(msg.query)) {

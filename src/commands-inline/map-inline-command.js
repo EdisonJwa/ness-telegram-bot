@@ -1,12 +1,13 @@
 const uuid = require('uuid')
 const map = require('../modules/map')
+const config = require('../config')
 
-module.exports = (config, bot) => {
-  const CACHETIME = config.bot.CACHETIME
-  const option = { cache_time: CACHETIME }
+const CACHE_TIMEOUT = config.cache_time
+const option = { cache_time: CACHE_TIMEOUT }
 
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
-    const rMap = /^(map|지도) ([\s\S]+)/i
+    const rMap = /^(map|지도)\s+([\s\S]+)/i
     if (rMap.test(msg.query)) {
       const text = msg.query.match(rMap)[2].trim()
 

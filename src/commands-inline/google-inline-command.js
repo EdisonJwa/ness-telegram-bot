@@ -3,7 +3,7 @@ const google = require('../modules/google-search')
 
 const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
 
-module.exports = (config, bot) => {
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
     const rGoogle = /^(google|구글|g|gg) ([\s\S]+)/i
     if (rGoogle.test(msg.query)) {

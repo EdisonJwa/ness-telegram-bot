@@ -1,14 +1,15 @@
 const uuid = require('uuid')
 const pick = require('../modules/pick')
+const config = require('../config')
+
+const CACHE_TIMEOUT = config.CACHE_TIMEOUT
+const option = { cache_time: CACHE_TIMEOUT }
 
 const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
 
-module.exports = (config, bot) => {
-  const CACHETIME = config.bot.CACHETIME
-  const option = { cache_time: CACHETIME }
-
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
-    const rPick = /^(pick|골라|선택) ([\s\S]+)/i
+    const rPick = /^(pick|골라|선택)\s+([\s\S]+)/i
     if (rPick.test(msg.query)) {
       const text = msg.query.match(rPick)[2].trim()
 

@@ -1,10 +1,11 @@
 const uuid = require('uuid')
 const currency = require('../modules/currency')
+const config = require('../config')
 
-module.exports = (config, bot) => {
-  const CACHETIME = config.bot.CACHETIME
-  const option = { cache_time: CACHETIME }
+const CACHE_TIMEOUT = config.CACHE_TIMEOUT
+const option = { cache_time: CACHE_TIMEOUT }
 
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
     const rDday = /^(currency|환율)/i
     if (rDday.test(msg.query)) {

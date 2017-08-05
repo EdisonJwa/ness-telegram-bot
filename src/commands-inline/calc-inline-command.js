@@ -1,7 +1,7 @@
 const uuid = require('uuid')
 const calc = require('../modules/calc')
 
-module.exports = (config, bot) => {
+module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
     const rCalc = /^(calc|계산|c) ([\s\S]+)/i
     if (rCalc.test(msg.query)) {
