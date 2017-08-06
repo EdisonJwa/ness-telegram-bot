@@ -81,7 +81,7 @@
     },
     "html": {
         "question": "<a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a>を入力してください!",
-        "error": "当該タグは支援していません!\n<a href=\"https://core.telegram.org/bots/api#html-style\">タグリスト</a>になかったり、タグが重なっているか確認してください。"
+        "error": "当該タグは支援していません!\n<a href=\"https://core.telegram.org/bots/api#html-style\"> タグリスト</a>になかったり、タグが重なっているか確認してください。"
     },
     "markdown": {
         "question": "<a href=\"https://core.telegram.org/bots/api#markdown-style\">Markdown</a>を入力してください!"
