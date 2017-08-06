@@ -32,7 +32,7 @@
         "future": "%date% days left!"
     },
     "currency": {
-        "help": "Please enter the base currency and Multiple! \n예시) /currency USD 1",
+        "help": "Please enter the base currency and Multiple! \nExample) /currency USD 1",
         "errorUnit": "Invalid currency code!",
         "errorMultiple": "Please enter the correct Multiple!"
     },
