@@ -97,7 +97,8 @@ module.exports = {
   code: {
     question: '코드를 입력 해주세요!',
     error: '',
-    onlyText: 'Text만 지원해요!'
+    onlyText: 'Text만 지원해요!',
+    replyOnly: '답장 전용 명령이에요! 답장을 통해 써주세요!'
   },
   enko: {
     question: '변환할 문자를 입력해주세요!',
@@ -112,6 +113,10 @@ module.exports = {
   },
   search: {
     notSupport: '아직 지원하지 않는 타입이에요!',
-    replyOnly: '답장 전용 명령이에요! 답장에 써주세요!'
+    replyOnly: '답장 전용 명령이에요! 답장을 통해 써주세요!'
+  },
+  run: {
+    question: '언어와 코드를 입력해주세요!',
+    language: 'assembly, ats, bash, c, clojure, cobol, coffeescript, cpp, crystal, csharp, d, elixir, elm, erlang, fsharp, go, groovy, haskell, idris, java, javascript, julia, kotlin, lua, mercury, nim, ocaml, perl, perl6, php, python, ruby, rust, scala, swift, typescript'
   }
 }

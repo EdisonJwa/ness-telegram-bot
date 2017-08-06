@@ -8,6 +8,18 @@
     "test": "mocha --reporter nyan --timeout 5000",
     "check": "standard"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nesffer/ness-telegram-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nesffer/ness-telegram-bot/issues"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "ness"
+  ],
   "author": "Nesffer",
   "license": "MIT",
   "dependencies": {
@@ -17,6 +29,7 @@
     "google": "^2.1.0",
     "googleapis": "^20.1.0",
     "html-entities": "^1.2.1",
+    "i18n": "^0.8.3",
     "mathjs": "^3.15.0",
     "mysql": "github:mysqljs/mysql",
     "node-google-translate-skidz": "^1.1.1",
@@ -30,7 +43,8 @@
     "sandbox": "^0.8.6",
     "text-table": "^0.2.0",
     "underscore": "^1.8.3",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
