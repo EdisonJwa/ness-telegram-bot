@@ -13,7 +13,7 @@
         "notFound": "번 메시지를 찾을 수 없어요!"
     },
     "image": {
-        "question": "Please enter the image search keyword.!",
+        "question": "Please enter the image search keyword!",
         "error": "Whoa!, I could not find image!"
     },
     "ping": {
@@ -32,7 +32,7 @@
         "future": "days left!"
     },
     "currency": {
-        "help": "Please enter the currency and multiplier!\n예시) /환율 KRW 10000",
+        "help": "Please enter the currency and multiplier!\nExample) /currency KRW 10000",
         "errorUnit": "Currency code is not valid!",
         "errorMultiple": "Please enter the valid multiplier!"
     },
@@ -41,7 +41,7 @@
         "error": "There is no translation result!"
     },
     "admins": {
-        "error": "It is only available in groups.!"
+        "error": "It is only available in groups!"
     },
     "ratio": {
         "question": "Please enter the two number!",
@@ -49,7 +49,7 @@
         "errorLimit": "It exceeded calculation range!"
     },
     "dice": {
-        "question": "Please enter the more than two words! 🎲"
+        "question": "Please enter more than two words! 🎲"
     },
     "pick": {
         "question": "Please enter the more than two words!",
@@ -65,11 +65,11 @@
     },
     "weather": {
         "question": "Please enter the address of Korea or Foreign countries!",
-        "error": "There is no results.If it is overseas please enter in english!",
+        "error": "There is no results.  If it is overseas please enter in english!",
         "errorRequest": "I cannot acess weather server!"
     },
     "contact": {
-        "found": "님의 유저 정보를 찾았어요!"
+        "found": "Found user information of [name]!"
     },
     "leave": {
         "bye": "Bye~",
@@ -98,7 +98,7 @@
         "question": "Please enter the code!",
         "error": "",
         "onlyText": "Only Text is supported!",
-        "replyOnly": "This command is replay only.Please command with reply!"
+        "replyOnly": "This command is reply only.Please command with reply!"
     },
     "enko": {
         "question": "Please enter the character to convert!",
