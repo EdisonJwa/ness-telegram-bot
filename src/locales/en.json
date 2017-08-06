@@ -76,7 +76,7 @@
         "permission": "You do not have permission."
     },
     "length": {
-        "question": "Please enter a string to measure the length!,
+        "question": "Please enter a string to measure the length!",
         "error": "Can not measure the length!"
     },
     "html": {
