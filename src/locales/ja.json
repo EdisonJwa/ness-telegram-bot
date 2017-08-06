@@ -1,5 +1,5 @@
 {
-    "error": "あら",
+    "error": "むえん",
     "google": {
         "emptyResponse": "検索エンジンに接続できません!",
         "resultsBelow": "検索結果が予想より不足します!",
@@ -29,10 +29,10 @@
         "error": "日付がないようです!",
         "today": "今日です!",
         "past": "日過ぎました!",
-        "future": "0日残りました!"
+        "future": "日残りました!"
     },
     "currency": {
-        "help": "通貨と倍数を含めて命令してください!\nex) /為替 KRW 10000",
+        "help": "通貨と倍数を含めて命令してください!\nex) /currency KRW 10000",
         "errorUnit": "通貨コードが正しくないです!",
         "errorMultiple": "正しい倍数を入力してください!"
     },
@@ -64,7 +64,7 @@
         "errorLocation": "GPS信号を見つけられません!"
     },
     "weather": {
-        "question": "韓国または外国のアドレスを入力してください!",
+        "question": "韓国又は外国のアドレスを入力してください!",
         "error": "結果がありません。外国なら英語で入力してください!",
         "errorRequest": "天気サーバーに接続することができません!"
     },
@@ -72,7 +72,7 @@
         "found": "さんのユーザ情報を見つけました!"
     },
     "leave": {
-        "bye": "じゃね～",
+        "bye": "行くよ〜",
         "permission": "権限がありません。"
     },
     "length": {
@@ -81,7 +81,7 @@
     },
     "html": {
         "question": "<a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a>を入力してください!",
-        "error": "当該タグは支援していません!\n<a href=\"https://core.telegram.org/bots/api#html-style\"> タグリスト</a>になかったり、タグが重なっているか確認してください。"
+        "error": "当該タグは支援していません!\n<a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a>になかったり、タグが重なっているか確認してください。"
     },
     "markdown": {
         "question": "<a href=\"https://core.telegram.org/bots/api#markdown-style\">Markdown</a>を入力してください!"
