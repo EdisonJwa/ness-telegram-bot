@@ -1,122 +1,122 @@
 {
-    "error": "Eww.. Something is wrong!",
-    "google": {
-        "emptyResponse": "Cannot connect to the Search Engine!",
-        "resultsBelow": "The search result is smaller than I expected!",
-        "question": "Please enter the search word in Google!",
-        "changeKorean": "Changed to Korean!"
-    },
-    "get": {
-        "question": "Please enter the Message ID!",
-        "error": "It is not a number, or it's out of range!",
-        "bring": "번 메시지 가져왔어요!",
-        "notFound": "번 메시지를 찾을 수 없어요!"
-    },
-    "image": {
-        "question": "Please enter an image search word!",
-        "error": "Aww... Cannot find an image!"
-    },
-    "ping": {
-        "question": "It's Ping!\nPlease enter IP or Domain!",
-        "error": "It's not IPv4 or Domain!"
+    "admins": {
+        "error": "It is only available in groups!"
     },
     "calc": {
-        "question": "Please enter the expression!",
-        "error": "The calculation result is strange!"
+        "error": "The calculation result is strange!",
+        "question": "Please enter the expression!"
     },
-    "dday": {
-        "question": "Please enter the date according to this format!\nex) <code>2018 01 01</code>",
-        "error": "Looks like it's not a date!",
-        "today": "It's Today!",
-        "past": "Days passed!",
-        "future": "Days remaining!"
+    "code": {
+        "error": "",
+        "onlyText": "Only Text is supported!",
+        "question": "Please enter the code!",
+        "replyOnly": "This command is for reply only! Please write it on a reply!"
+    },
+    "contact": {
+        "found": "님의 유저 정보를 찾았어요!"
     },
     "currency": {
-        "help": "Please enter the base currency and Multiple! \nExample) /currency USD 1",
-        "errorUnit": "Invalid currency code!",
-        "errorMultiple": "Please enter the correct Multiple!"
+        "errorMultiple": "Please enter the correct Multiple!",
+        "errorUnit": "Currency code is not valid!",
+        "help": "Please enter the base currency and multiple! \nExample) /currency KRW 10000"
     },
-    "translate": {
-        "question": "Please enter the sentences you want to translate!",
-        "error": "No translation results!"
+    "dday": {
+        "error": "Looks like it's not a date!",
+        "future": "Days remaining!",
+        "past": "Days passed!",
+        "question": "Please enter the date according to this format!\nex) <code>2018 01 01</code>",
+        "today": "It's Today!"
     },
-    "admins": {
-        "error": "Can only be used in groups!"
-    },
-    "ratio": {
-        "question": "Please enter two numbers!",
-        "error": "It's an wrong value!",
-        "errorLimit": "The calculation range has been exceeded!"
+    "decode": {
+        "question": "Please enter the string to decode!"
     },
     "dice": {
         "question": "Please enter two or more words! 🎲"
     },
-    "pick": {
-        "question": "Please enter more than one word!",
-        "error": "Please enter more than one word!"
+    "enko": {
+        "onlyText": "Only text is supported!",
+        "question": "Please enter the character to convert!"
     },
-    "map": {
-        "questionAddr": "Please enter your address!",
-        "questionPlace": "Please enter a place!",
-        "errorAddr": "Cannot find the address!",
-        "errorCoord": "Cannot find the coordinate!",
-        "errorPlace": "Cannot find the location!",
-        "errorLocation": "Cannot detect GPS Signal!"
+    "error": "Eww.. Something is wrong!",
+    "get": {
+        "bring": "번 메시지 가져왔어요!",
+        "error": "It is not a number, or it's out of range!",
+        "notFound": "번 메시지를 찾을 수 없어요!",
+        "question": "Please enter the Message ID!"
     },
-    "weather": {
-        "question": "Please enter Korea or Foreign address!",
-        "error": "There is no result. If you are outside of Korea, please enter in English!",
-        "errorRequest": "I cannot connect to the weather server!"
+    "google": {
+        "changeKorean": "Changed to Korean!",
+        "emptyResponse": "Cannot connect to the Search Engine!",
+        "question": "Please enter the Google search word!",
+        "resultsBelow": "The search result is smaller than I expected!"
     },
-    "contact": {
-        "found": "I have found user information of %username%!"
+    "html": {
+        "error": "That tag is not supported!\nIt's not in the <a href=\"https://core.telegram.org/bots/api#html-style\">Tag List</a> or check if tag is nested.",
+        "question": "Please enter the <a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a> code!"
+    },
+    "image": {
+        "error": "Aww... Cannot find an image!",
+        "question": "Please enter the image search word!"
+    },
+    "koen": {
+        "errorInput": "Please enter Korean only with a form of choseong+jungseong or choseong+jungseong+jongseong!",
+        "question": "Please enter the character to convert!"
     },
     "leave": {
         "bye": "Bye~",
         "permission": "Permission denied."
     },
     "length": {
-        "question": "Please enter a value to measure the length!",
-        "error": "Can not measure the length!"
+        "error": "Can not measure the length!",
+        "question": "Please enter a value to measure the length!"
     },
-    "html": {
-        "question": "Please enter the <a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a> code!",
-        "error": "This tag is not supported!\nPlease make sure that it is not in the <a href=\"https://core.telegram.org/bots/api#html-style\">Tag list</a> or the tag is nested."
+    "map": {
+        "errorAddr": "Cannot find the address!",
+        "errorCoord": "Cannot find the coordinate!",
+        "errorLocation": "Cannot detect GPS Signal!",
+        "errorPlace": "Cannot find the location!",
+        "questionAddr": "Please enter the address!",
+        "questionPlace": "Please enter a place!"
     },
     "markdown": {
         "question": "Please enter the <a href=\"https://core.telegram.org/bots/api#markdown-style\">Markdown</a>!"
     },
-    "youtube": {
-        "question": "Please enter a video search word!",
-        "error": "I can not find the video!"
-    },
     "papago": {
-        "question": "Please enter the sentences you want to translate!",
-        "error": "No translation results!"
+        "error": "No translation result!",
+        "question": "Please enter sentence to translate!"
     },
-    "code": {
-        "question": "Please enter the code!",
-        "error": "",
-        "onlyText": "Only text is supported!",
-        "replyOnly": "This command is for reply only! Please write it on a reply!"
+    "pick": {
+        "error": "Please enter the more than two words!",
+        "question": "Please enter the more than two words!"
     },
-    "enko": {
-        "question": "Please enter the value to convert!",
-        "onlyText": "Only text is supported!"
+    "ping": {
+        "error": "It's not IPv4 or Domain!",
+        "question": "It's Ping!\nPlease enter IP or Domain!"
     },
-    "koen": {
-        "question": "Please enter the value to convert!",
-        "errorInput": "Please enter Korean only with a form of choseong+jungseong or choseong+jungseong+jongseong!"
+    "ratio": {
+        "error": "It's wrong value!",
+        "errorLimit": "It exceeded calculation range!",
+        "question": "Please enter the two numbers!"
     },
-    "decode": {
-        "question": "Please enter a string to decode!"
+    "run": {
+        "language": "assembly, ats, bash, c, clojure, cobol, coffeescript, cpp, crystal, csharp, d, elixir, elm, erlang, fsharp, go, groovy, haskell, idris, java, javascript, julia, kotlin, lua, mercury, nim, ocaml, perl, perl6, php, python, ruby, rust, scala, swift, typescript",
+        "question": "Please enter the language and code!"
     },
     "search": {
         "notSupport": "This type is not yet supported!",
         "replyOnly": "This command is for reply only! Please write it on a reply!"
     },
-    "run": {
-        "question": "Please enter your language and code!",
-        "language": "assembly, ats, bash, c, clojure, cobol, coffeescript, cpp, crystal, csharp, d, elixir, elm, erlang, fsharp, go, groovy, haskell, idris, java, javascript, julia, kotlin, lua, mercury, nim, ocaml, perl, perl6, php, python, ruby, rust, scala, swift, typescript"
+    "translate": {
+        "error": "No translation results!",
+        "question": "Please enter the sentence for translation!"
+    },
+    "weather": {
+        "error": "There is no result. If you are outside of Korea, please enter in English!",
+        "errorRequest": "I cannot connect to the weather server!",
+        "question": "Please enter Korea or Foreign address!"
+    },
+    "youtube": {
+        "error": "I cannot find the video!",
+        "question": "Please enter the video search word!"
     }
 }
