@@ -1,14 +1,14 @@
 {
-    "error": "Oops!!",
+    "error": "Eww.. Something is wrong!",
     "google": {
-        "emptyResponse": "I cannot connect to the Search Engine!",
+        "emptyResponse": "Cannot connect to the Search Engine!",
         "resultsBelow": "The search result is smaller than I expected!",
         "question": "Please enter the search word in Google!",
         "changeKorean": "Changed to Korean!"
     },
     "get": {
         "question": "Please enter the Message ID!",
-        "error": "It is not a number, or exceeds the ID limit!",
+        "error": "It is not a number, or it's out of range!",
         "bring": "번 메시지 가져왔어요!",
         "notFound": "번 메시지를 찾을 수 없어요!"
     },
@@ -22,7 +22,7 @@
     },
     "calc": {
         "question": "Please enter the expression!",
-        "error": "Ouch... The calculation result is strange!"
+        "error": "The calculation result is strange!"
     },
     "dday": {
         "question": "Please enter the date according to this format!\nex) <code>2018 01 01</code>",
@@ -32,9 +32,9 @@
         "future": "Days remaining!"
     },
     "currency": {
-        "help": "Please command with the name of currency and the multiple!\nex) /currency KRW 10000",
-        "errorUnit": "The currency code is not correct!",
-        "errorMultiple": "Please enter the correct multiple!"
+        "help": "Please enter the base currency and Multiple! \nExample) /currency USD 1",
+        "errorUnit": "Invalid currency code!",
+        "errorMultiple": "Please enter the correct Multiple!"
     },
     "translate": {
         "question": "Please enter the sentences you want to translate!",
@@ -45,31 +45,31 @@
     },
     "ratio": {
         "question": "Please enter two numbers!",
-        "error": "Ouch... Wrong value!",
-        "errorLimit": "Sadly, caculation range was exceeded!"
+        "error": "It's an wrong value!",
+        "errorLimit": "The calculation range has been exceeded!"
     },
     "dice": {
         "question": "Please enter two or more words! 🎲"
     },
     "pick": {
-        "question": "Please enter two or more words!",
-        "error": "Please enter two or more words!"
+        "question": "Please enter more than one word!",
+        "error": "Please enter more than one word!"
     },
     "map": {
-        "questionAddr": "Please enter an address!",
+        "questionAddr": "Please enter your address!",
         "questionPlace": "Please enter a place!",
-        "errorAddr": "I cannot find the address!",
-        "errorCoord": "I cannot find the coordinate!",
-        "errorPlace": "I cannot find the location!",
-        "errorLocation": "I Can't detect GPS Signal!"
+        "errorAddr": "Cannot find the address!",
+        "errorCoord": "Cannot find the coordinate!",
+        "errorPlace": "Cannot find the location!",
+        "errorLocation": "Cannot detect GPS Signal!"
     },
     "weather": {
         "question": "Please enter Korea or Foreign address!",
-        "error": "Aww.. No result! Enter in english when it's Foreign address!",
+        "error": "There is no result. If you are outside of Korea, please enter in English!",
         "errorRequest": "I cannot connect to the weather server!"
     },
     "contact": {
-        "found": "님의 유저 정보를 찾았어요!"
+        "found": "I have found user information of %username%!"
     },
     "leave": {
         "bye": "Bye~",
@@ -77,18 +77,18 @@
     },
     "length": {
         "question": "Please enter a value to measure the length!",
-        "error": "I cannot measure the length!"
+        "error": "Can not measure the length!"
     },
     "html": {
         "question": "Please enter the <a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a> code!",
-        "error": "The tag is not supported!\nPlease check if it's in the <a href=\"https://core.telegram.org/bots/api#html-style\">List of Tags</a> and it's not nested."
+        "error": "This tag is not supported!\nPlease make sure that it is not in the <a href=\"https://core.telegram.org/bots/api#html-style\">Tag list</a> or the tag is nested."
     },
     "markdown": {
         "question": "Please enter the <a href=\"https://core.telegram.org/bots/api#markdown-style\">Markdown</a>!"
     },
     "youtube": {
         "question": "Please enter a video search word!",
-        "error": "I cannot find the video!"
+        "error": "I can not find the video!"
     },
     "papago": {
         "question": "Please enter the sentences you want to translate!",
@@ -116,7 +116,7 @@
         "replyOnly": "This command is for reply only! Please write it on a reply!"
     },
     "run": {
-        "question": "Enter the language and code!",
+        "question": "Please enter your language and code!",
         "language": "assembly, ats, bash, c, clojure, cobol, coffeescript, cpp, crystal, csharp, d, elixir, elm, erlang, fsharp, go, groovy, haskell, idris, java, javascript, julia, kotlin, lua, mercury, nim, ocaml, perl, perl6, php, python, ruby, rust, scala, swift, typescript"
     }
 }
