@@ -1,122 +1,122 @@
 {
-    "error": "무엥",
+    "error": "あら",
     "google": {
-        "emptyResponse": "검색엔진에 접속할 수 없어요!",
-        "resultsBelow": "검색 결과가 예상보다 미달해요!",
-        "question": "Google 검색어를 입력해주세요!",
-        "changeKorean": "한국어로 바꿨어요!"
+        "emptyResponse": "検索エンジンに接続できません!",
+        "resultsBelow": "検索結果が予想より不足します!",
+        "question": "Google検索語を入力してください!",
+        "changeKorean": "韓国語で変えました!"
     },
     "get": {
-        "question": "메시지 ID를 입력해주세요!",
-        "error": "숫자가 아니거나 ID 범위를 초과했어요!",
-        "bring": "번 메시지 가져왔어요!",
-        "notFound": "번 메시지를 찾을 수 없어요!"
+        "question": "メッセージIDを入力してください!",
+        "error": "数字がなかったり、ID範囲を超過しました!",
+        "bring": "度メッセージを持って来ました!",
+        "notFound": "度メッセージを見つけられません!"
     },
     "image": {
-        "question": "이미지 검색어를 입력해주세요!",
-        "error": "앗! 이미지를 찾을 수 없어요!"
+        "question": "イメージ検索語を入力してください!",
+        "error": "あっ!イメージを見つけられません!"
     },
     "ping": {
-        "question": "Ping이에요!\nIP 또는 Domain을 입력해주세요!",
-        "error": "IPv4 또는 Domain이 아니에요!"
+        "question": "Pingです!\nIPまたはDomainを入力してください!",
+        "error": "IPv4またはDomainではないです!"
     },
     "calc": {
-        "question": "수식을 입력해주세요!",
-        "error": "계산 결과가 이상해요!"
+        "question": "数式を入力してください!",
+        "error": "計算結果が変です!"
     },
     "dday": {
-        "question": "날짜를 형식에 맞춰 입력해주세요!\nex) <code>2018 01 01</code>",
-        "error": "날짜가 아닌 것 같아요!",
-        "today": "오늘이에요!",
-        "past": "일 지났어요!",
-        "future": "일 남았어요!"
+        "question": "日付を形式に合わせて入力してください!\nex) <code>2018 01 01</code>",
+        "error": "日付がないようです!",
+        "today": "今日です!",
+        "past": "日過ぎました!",
+        "future": "0日残りました!"
     },
     "currency": {
-        "help": "통화와 배수를 포함해 명령해주세요!\n예시) /환율 KRW 10000",
-        "errorUnit": "통화 코드가 올바르지 않아요!",
-        "errorMultiple": "올바른 배수를 입력하세요!"
+        "help": "通貨と倍数を含めて命令してください!\nex) /為替 KRW 10000",
+        "errorUnit": "通貨コードが正しくないです!",
+        "errorMultiple": "正しい倍数を入力してください!"
     },
     "translate": {
-        "question": "번역할 문장을 입력해주세요!",
-        "error": "번역 결과가 없어요!"
+        "question": "翻訳する文章を入力してください!",
+        "error": "翻訳結果がありません!"
     },
     "admins": {
-        "error": "그룹에서만 사용할 수 있어요!"
+        "error": "グループでのみ使用できます!"
     },
     "ratio": {
-        "question": "두 숫자를 입력해주세요!",
-        "error": "잘못된 값이에요!",
-        "errorLimit": "연산 범위를 초과했어요!"
+        "question": "二つの数字を入力してください!",
+        "error": "間違った値です!",
+        "errorLimit": "演算範囲を超過しました!"
     },
     "dice": {
-        "question": "둘 이상의 단어를 입력해주세요! 🎲"
+        "question": "二人以上の単語を入力してください! 🎲"
     },
     "pick": {
-        "question": "둘 이상의 단어를 입력해주세요!",
-        "error": "둘 이상의 단어를 입력해주세요!"
+        "question": "二人以上の単語を入力してください!",
+        "error": "二人以上の単語を入力してください!"
     },
     "map": {
-        "questionAddr": "주소를 입력해주세요!",
-        "questionPlace": "장소를 입력해주세요!",
-        "errorAddr": "주소를 찾을 수 없어요!",
-        "errorCoord": "좌표를 찾을 수 없어요!",
-        "errorPlace": "장소를 찾을 수 없어요!",
-        "errorLocation": "GPS 신호를 찾을 수 없어요!"
+        "questionAddr": "アドレスを入力してください!",
+        "questionPlace": "場所を入力してください!",
+        "errorAddr": "住所を見つけられません!",
+        "errorCoord": "座標が見つかりません!",
+        "errorPlace": "場所を見つけられません!",
+        "errorLocation": "GPS信号を見つけられません!"
     },
     "weather": {
-        "question": "한국 또는 외국의 주소를 입력해주세요!",
-        "error": "결과가 없어요. 외국이면 영어로 입력해주세요!",
-        "errorRequest": "날씨 서버에 접속할 수 없어요!"
+        "question": "韓国または外国のアドレスを入力してください!",
+        "error": "結果がありません。外国なら英語で入力してください!",
+        "errorRequest": "天気サーバーに接続することができません!"
     },
     "contact": {
-        "found": "님의 유저 정보를 찾았어요!"
+        "found": "さんのユーザ情報を見つけました!"
     },
     "leave": {
-        "bye": "안녕~",
-        "permission": "권한이 없습니다."
+        "bye": "じゃね～",
+        "permission": "権限がありません。"
     },
     "length": {
-        "question": "길이를 측정할 문자열을 입력해주세요!",
-        "error": "길이를 측정할 수 없어요!"
+        "question": "長さを測定する文字列を入力してください!",
+        "error": "長さを測定することができません!"
     },
     "html": {
-        "question": "<a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a>을 입력해주세요!",
-        "error": "해당 태그는 지원하지 않아요!\n<a href=\"https://core.telegram.org/bots/api#html-style\">태그 목록</a>에 없거나 태그가 중첩되어 있는지 확인해주세요."
+        "question": "<a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a>を入力してください!",
+        "error": "当該タグは支援していません!\n<a href=\"https://core.telegram.org/bots/api#html-style\">タグリスト</a>になかったり、タグが重なっているか確認してください。"
     },
     "markdown": {
-        "question": "<a href=\"https://core.telegram.org/bots/api#markdown-style\">Markdown</a>을 입력해주세요!"
+        "question": "<a href=\"https://core.telegram.org/bots/api#markdown-style\">Markdown</a>を入力してください!"
     },
     "youtube": {
-        "question": "동영상 검색어를 입력해주세요!",
-        "error": "동영상을 찾을 수 없어요!"
+        "question": "動画検索語を入力してください!",
+        "error": "動画を見つけられません!"
     },
     "papago": {
-        "question": "번역할 문장을 입력해주세요!",
-        "error": "번역 결과가 없어요!"
+        "question": "翻訳する文章を入力してください!",
+        "error": "翻訳結果がありません!"
     },
     "code": {
-        "question": "코드를 입력 해주세요!",
+        "question": "コードを入力してください!",
         "error": "",
-        "onlyText": "Text만 지원해요!",
-        "replyOnly": "답장 전용 명령이에요! 답장을 통해 써주세요!"
+        "onlyText": "Textだけを支援します!",
+        "replyOnly": "返事専用命令です! 返事を通じて使ってください!"
     },
     "enko": {
-        "question": "변환할 문자를 입력해주세요!",
-        "onlyText": "Text만 지원해요!"
+        "question": "変換する文字を入力してください!",
+        "onlyText": "Textだけを支援します!"
     },
     "koen": {
-        "question": "변환할 문자를 입력해주세요!",
-        "errorInput": "초성+중성 또는 초성+중성+종성의 한글만 넣어주세요!"
+        "question": "変換する文字を入力してください!",
+        "errorInput": "初声+中性または初声+中性+終声のハングルだけ入れてください!"
     },
     "decode": {
-        "question": "디코드할 문자열을 입력해주세요!"
+        "question": "デコードする文字列を入力してください!"
     },
     "search": {
-        "notSupport": "아직 지원하지 않는 타입이에요!",
-        "replyOnly": "답장 전용 명령이에요! 답장을 통해 써주세요!"
+        "notSupport": "まだ支援しないタイプです!",
+        "replyOnly": "返事専用命令です!返事を通じて使ってください!"
     },
     "run": {
-        "question": "언어와 코드를 입력해주세요!",
+        "question": "言語とコードを入力してください!",
         "language": "assembly, ats, bash, c, clojure, cobol, coffeescript, cpp, crystal, csharp, d, elixir, elm, erlang, fsharp, go, groovy, haskell, idris, java, javascript, julia, kotlin, lua, mercury, nim, ocaml, perl, perl6, php, python, ruby, rust, scala, swift, typescript"
     }
 }
