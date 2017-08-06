@@ -1,122 +1,122 @@
 {
-    "error": "むえん",
-    "google": {
-        "emptyResponse": "検索エンジンに接続できません!",
-        "resultsBelow": "検索結果が予想より不足します!",
-        "question": "Google検索語を入力してください!",
-        "changeKorean": "韓国語で変えました!"
-    },
-    "get": {
-        "question": "メッセージIDを入力してください!",
-        "error": "数字がなかったり、ID範囲を超過しました!",
-        "bring": "度メッセージを持って来ました!",
-        "notFound": "度メッセージを見つけられません!"
-    },
-    "image": {
-        "question": "イメージ検索語を入力してください!",
-        "error": "あっ!イメージを見つけられません!"
-    },
-    "ping": {
-        "question": "Pingです!\nIPまたはDomainを入力してください!",
-        "error": "IPv4またはDomainではないです!"
-    },
-    "calc": {
-        "question": "数式を入力してください!",
-        "error": "計算結果が変です!"
-    },
-    "dday": {
-        "question": "日付を形式に合わせて入力してください!\nex) <code>2018 01 01</code>",
-        "error": "日付がないようです!",
-        "today": "今日です!",
-        "past": "日過ぎました!",
-        "future": "日残りました!"
-    },
-    "currency": {
-        "help": "通貨と倍数を含めて命令してください!\nex) /currency KRW 10000",
-        "errorUnit": "通貨コードが正しくないです!",
-        "errorMultiple": "正しい倍数を入力してください!"
-    },
-    "translate": {
-        "question": "翻訳する文章を入力してください!",
-        "error": "翻訳結果がありません!"
-    },
     "admins": {
         "error": "グループでのみ使用できます!"
     },
-    "ratio": {
-        "question": "二つの数字を入力してください!",
-        "error": "間違った値です!",
-        "errorLimit": "演算範囲を超過しました!"
+    "calc": {
+        "error": "計算結果が変です!",
+        "question": "数式を入力してください!"
+    },
+    "code": {
+        "error": "",
+        "onlyText": "Textだけを支援します!",
+        "question": "コードを入力してください!",
+        "replyOnly": "返事専用命令です! 返事を通じて使ってください!"
+    },
+    "contact": {
+        "found": "さんのユーザ情報を見つけました!"
+    },
+    "currency": {
+        "errorMultiple": "正しい倍数を入力してください!",
+        "errorUnit": "通貨コードが正しくないです!",
+        "help": "通貨と倍数を含めて命令してください!\nex) /currency KRW 10000"
+    },
+    "dday": {
+        "error": "日付がないようです!",
+        "future": "日残りました!",
+        "past": "日過ぎました!",
+        "question": "日付を形式に合わせて入力してください!\nex) <code>2018 01 01</code>",
+        "today": "今日です!"
+    },
+    "decode": {
+        "question": "デコードする文字列を入力してください!"
     },
     "dice": {
         "question": "二人以上の単語を入力してください! 🎲"
     },
-    "pick": {
-        "question": "二人以上の単語を入力してください!",
-        "error": "二人以上の単語を入力してください!"
+    "enko": {
+        "onlyText": "Textだけを支援します!",
+        "question": "変換する文字を入力してください!"
     },
-    "map": {
-        "questionAddr": "アドレスを入力してください!",
-        "questionPlace": "場所を入力してください!",
-        "errorAddr": "住所を見つけられません!",
-        "errorCoord": "座標が見つかりません!",
-        "errorPlace": "場所を見つけられません!",
-        "errorLocation": "GPS信号を見つけられません!"
+    "error": "むえん",
+    "get": {
+        "bring": "度メッセージを持って来ました!",
+        "error": "数字がなかったり、ID範囲を超過しました!",
+        "notFound": "度メッセージを見つけられません!",
+        "question": "メッセージIDを入力してください!"
     },
-    "weather": {
-        "question": "韓国又は外国のアドレスを入力してください!",
-        "error": "結果がありません。外国なら英語で入力してください!",
-        "errorRequest": "天気サーバーに接続することができません!"
+    "google": {
+        "changeKorean": "韓国語で変えました!",
+        "emptyResponse": "検索エンジンに接続できません!",
+        "question": "Google検索語を入力してください!",
+        "resultsBelow": "検索結果が予想より不足します!"
     },
-    "contact": {
-        "found": "さんのユーザ情報を見つけました!"
+    "html": {
+        "error": "当該タグは支援していません!\n<a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a>になかったり、タグが重なっているか確認してください。",
+        "question": "<a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a>を入力してください!"
+    },
+    "image": {
+        "error": "あっ!イメージを見つけられません!",
+        "question": "イメージ検索語を入力してください!"
+    },
+    "koen": {
+        "errorInput": "初声+中性または初声+中性+終声のハングルだけ入れてください!",
+        "question": "変換する文字を入力してください!"
     },
     "leave": {
         "bye": "行くよ〜",
         "permission": "権限がありません。"
     },
     "length": {
-        "question": "長さを測定する文字列を入力してください!",
-        "error": "長さを測定することができません!"
+        "error": "長さを測定することができません!",
+        "question": "長さを測定する文字列を入力してください!"
     },
-    "html": {
-        "question": "<a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a>を入力してください!",
-        "error": "当該タグは支援していません!\n<a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a>になかったり、タグが重なっているか確認してください。"
+    "map": {
+        "errorAddr": "住所を見つけられません!",
+        "errorCoord": "座標が見つかりません!",
+        "errorLocation": "GPS信号を見つけられません!",
+        "errorPlace": "場所を見つけられません!",
+        "questionAddr": "アドレスを入力してください!",
+        "questionPlace": "場所を入力してください!"
     },
     "markdown": {
         "question": "<a href=\"https://core.telegram.org/bots/api#markdown-style\">Markdown</a>を入力してください!"
     },
-    "youtube": {
-        "question": "動画検索語を入力してください!",
-        "error": "動画を見つけられません!"
-    },
     "papago": {
-        "question": "翻訳する文章を入力してください!",
-        "error": "翻訳結果がありません!"
+        "error": "翻訳結果がありません!",
+        "question": "翻訳する文章を入力してください!"
     },
-    "code": {
-        "question": "コードを入力してください!",
-        "error": "",
-        "onlyText": "Textだけを支援します!",
-        "replyOnly": "返事専用命令です! 返事を通じて使ってください!"
+    "pick": {
+        "error": "二人以上の単語を入力してください!",
+        "question": "二人以上の単語を入力してください!"
     },
-    "enko": {
-        "question": "変換する文字を入力してください!",
-        "onlyText": "Textだけを支援します!"
+    "ping": {
+        "error": "IPv4またはDomainではないです!",
+        "question": "Pingです!\nIPまたはDomainを入力してください!"
     },
-    "koen": {
-        "question": "変換する文字を入力してください!",
-        "errorInput": "初声+中性または初声+中性+終声のハングルだけ入れてください!"
+    "ratio": {
+        "error": "間違った値です!",
+        "errorLimit": "演算範囲を超過しました!",
+        "question": "二つの数字を入力してください!"
     },
-    "decode": {
-        "question": "デコードする文字列を入力してください!"
+    "run": {
+        "language": "assembly, ats, bash, c, clojure, cobol, coffeescript, cpp, crystal, csharp, d, elixir, elm, erlang, fsharp, go, groovy, haskell, idris, java, javascript, julia, kotlin, lua, mercury, nim, ocaml, perl, perl6, php, python, ruby, rust, scala, swift, typescript",
+        "question": "言語とコードを入力してください!"
     },
     "search": {
         "notSupport": "まだ支援しないタイプです!",
         "replyOnly": "返事専用命令です!返事を通じて使ってください!"
     },
-    "run": {
-        "question": "言語とコードを入力してください!",
-        "language": "assembly, ats, bash, c, clojure, cobol, coffeescript, cpp, crystal, csharp, d, elixir, elm, erlang, fsharp, go, groovy, haskell, idris, java, javascript, julia, kotlin, lua, mercury, nim, ocaml, perl, perl6, php, python, ruby, rust, scala, swift, typescript"
+    "translate": {
+        "error": "翻訳結果がありません!",
+        "question": "翻訳する文章を入力してください!"
+    },
+    "weather": {
+        "error": "結果がありません。外国なら英語で入力してください!",
+        "errorRequest": "天気サーバーに接続することができません!",
+        "question": "韓国又は外国のアドレスを入力してください!"
+    },
+    "youtube": {
+        "error": "動画を見つけられません!",
+        "question": "動画検索語を入力してください!"
     }
 }
