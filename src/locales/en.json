@@ -1,119 +1,119 @@
 {
     "error": "무엥",
     "google": {
-        "emptyResponse": "검색엔진에 접속할 수 없어요!",
-        "resultsBelow": "검색 결과가 예상보다 미달해요!",
-        "question": "Google 검색어를 입력해주세요!",
-        "changeKorean": "한국어로 바꿨어요!"
+        "emptyResponse": "I cannot connect to the search engine!",
+        "resultsBelow": "The search result is smaller than I expected!",
+        "question": "Please enter what you want to search in Google!",
+        "changeKorean": "I changed the results to Korean!"
     },
     "get": {
-        "question": "메시지 ID를 입력해주세요!",
-        "error": "숫자가 아니거나 ID 범위를 초과했어요!",
+        "question": "Please enter the message ID!",
+        "error": "It is not a number, or exceeds the ID limit!",
         "bring": "번 메시지 가져왔어요!",
         "notFound": "번 메시지를 찾을 수 없어요!"
     },
     "image": {
-        "question": "이미지 검색어를 입력해주세요!",
-        "error": "앗! 이미지를 찾을 수 없어요!"
+        "question": "Please enter an image search word!",
+        "error": "Oops! I cannot find the image!"
     },
     "ping": {
-        "question": "Ping이에요!\nIP 또는 Domain을 입력해주세요!",
-        "error": "IPv4 또는 Domain이 아니에요!"
+        "question": "It's ping!\nPlease enter an IP or a Domain!",
+        "error": "It is not an IPv4 or a Domain!"
     },
     "calc": {
-        "question": "수식을 입력해주세요!",
-        "error": "계산 결과가 이상해요!"
+        "question": "Please enter the expression!",
+        "error": "Something is wrong with the result!"
     },
     "dday": {
-        "question": "날짜를 형식에 맞춰 입력해주세요!\nex) <code>2018 01 01</code>",
-        "error": "날짜가 아닌 것 같아요!",
-        "today": "오늘이에요!",
-        "past": "일 지났어요!",
-        "future": "일 남았어요!"
+        "question": "Please enter the date as below!\nex) <code>2018 01 01</code>",
+        "error": "Looks like it's not a date!",
+        "today": "Today!",
+        "past": "day(s) have past!",
+        "future": "day(s) left!"
     },
     "currency": {
-        "help": "통화와 배수를 포함해 명령해주세요!\n예시) /환율 KRW 10000",
-        "errorUnit": "통화 코드가 올바르지 않아요!",
-        "errorMultiple": "올바른 배수를 입력하세요!"
+        "help": "Please command with the name of currency and the multiple!\nex) /currency KRW 10000",
+        "errorUnit": "The currency code is not correct!",
+        "errorMultiple": "Please enter the correct multiple!"
     },
     "translate": {
-        "question": "번역할 문장을 입력해주세요!",
-        "error": "번역 결과가 없어요!"
+        "question": "Please enter the sentences you want to translate!",
+        "error": "No translation results!"
     },
     "admins": {
-        "error": "그룹에서만 사용할 수 있어요!"
+        "error": "You can only use it in a group!"
     },
     "ratio": {
-        "question": "두 숫자를 입력해주세요!",
-        "error": "잘못된 값이에요!",
-        "errorLimit": "연산 범위를 초과했어요!"
+        "question": "Please enter two numbers!",
+        "error": "Something is wrong!",
+        "errorLimit": "The number exceeds the calculation limit!"
     },
     "dice": {
-        "question": "둘 이상의 단어를 입력해주세요! 🎲"
+        "question": "Please enter two or more words! 🎲"
     },
     "pick": {
-        "question": "둘 이상의 단어를 입력해주세요!",
-        "error": "둘 이상의 단어를 입력해주세요!"
+        "question": "Please enter two or more words!",
+        "error": "Please enter two or more words!"
     },
     "map": {
-        "questionAddr": "주소를 입력해주세요!",
-        "questionPlace": "장소를 입력해주세요!",
-        "errorAddr": "주소를 찾을 수 없어요!",
-        "errorCoord": "좌표를 찾을 수 없어요!",
-        "errorPlace": "장소를 찾을 수 없어요!",
-        "errorLocation": "GPS 신호를 찾을 수 없어요!"
+        "questionAddr": "Please enter an address!",
+        "questionPlace": "Please enter a place!",
+        "errorAddr": "I cannot find the address!",
+        "errorCoord": "I cannot find the coord!",
+        "errorPlace": "I cannot find the place!",
+        "errorLocation": "I cannot find the GPS signal!"
     },
     "weather": {
-        "question": "한국 또는 외국의 주소를 입력해주세요!",
-        "error": "결과가 없어요. 외국이면 영어로 입력해주세요!",
-        "errorRequest": "날씨 서버에 접속할 수 없어요!"
+        "question": "Please enter the address!",
+        "error": "No result. If the place is outside Korea, please enter the name in English!",
+        "errorRequest": "I cannot connect to the weather server!"
     },
     "contact": {
         "found": "님의 유저 정보를 찾았어요!"
     },
     "leave": {
-        "bye": "안녕~",
-        "permission": "권한이 없습니다."
+        "bye": "Bye~",
+        "permission": "Permission denied."
     },
     "length": {
-        "question": "길이를 측정할 문자열을 입력해주세요!",
-        "error": "길이를 측정할 수 없어요!"
+        "question": "Please enter a string you want to measure!",
+        "error": "I cannot measure the length!"
     },
     "html": {
-        "question": "<a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a>을 입력해주세요!",
-        "error": "해당 태그는 지원하지 않아요!\n<a href=\"https://core.telegram.org/bots/api#html-style\">태그 목록</a>에 없거나 태그가 중첩되어 있는지 확인해주세요."
+        "question": "Please enter the <a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a> code!",
+        "error": "The tag is not supported!\nPlease check if it's in the <a href=\"https://core.telegram.org/bots/api#html-style\">List of Tags</a> and it's not nested."
     },
     "markdown": {
-        "question": "<a href=\"https://core.telegram.org/bots/api#markdown-style\">Markdown</a>을 입력해주세요!"
+        "question": "Please enter the <a href=\"https://core.telegram.org/bots/api#markdown-style\">Markdown</a>!"
     },
     "youtube": {
-        "question": "동영상 검색어를 입력해주세요!",
-        "error": "동영상을 찾을 수 없어요!"
+        "question": "Please enter a video search word!",
+        "error": "I cannot find the video!"
     },
     "papago": {
-        "question": "번역할 문장을 입력해주세요!",
-        "error": "번역 결과가 없어요!"
+        "question": "Please enter the sentences you want to translate!",
+        "error": "No translation results!"
     },
     "code": {
-        "question": "코드를 입력 해주세요!",
+        "question": "Please enter the code!",
         "error": "",
-        "onlyText": "Text만 지원해요!",
-        "replyOnly": "답장 전용 명령이에요! 답장을 통해 써주세요!"
+        "onlyText": "Only texts are supported!",
+        "replyOnly": "This command is for reply only! Please write it on a reply!"
     },
     "enko": {
-        "question": "변환할 문자를 입력해주세요!",
-        "onlyText": "Text만 지원해요!"
+        "question": "Please enter a string to convert!",
+        "onlyText": "Only texts are supported!"
     },
     "koen": {
-        "question": "변환할 문자를 입력해주세요!",
-        "errorInput": "초성+중성 또는 초성+중성+종성의 한글만 넣어주세요!"
+        "question": "Please enter a string to convert!",
+        "errorInput": "Please enter Korean only with a form of choseong+jungseong or choseong+jungseong+jongseong!"
     },
     "decode": {
-        "question": "디코드할 문자열을 입력해주세요!"
+        "question": "Please enter a string to decode!"
     },
     "search": {
-        "notSupport": "아직 지원하지 않는 타입이에요!",
-        "replyOnly": "답장 전용 명령이에요! 답장을 통해 써주세요!"
+        "notSupport": "This type is not yet supported!",
+        "replyOnly": "This command is for reply only! Please write it on a reply!"
     },
     "run": {
         "question": "언어와 코드를 입력해주세요!",
