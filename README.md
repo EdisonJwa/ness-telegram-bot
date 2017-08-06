@@ -2,44 +2,17 @@
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
-## 지원하는 명령
+## Contributors
 
-- [x] /admins
-- [ ] /anime
-- [x] /calc
-- [x] /clear
-- [x] /code
-- [x] /currency
-- [x] /dday
-- [x] /delete
-- [x] /dice
-- [ ] /echo
-- [x] /enko
-- [x] /get
-- [ ] /gif
-- [x] /google
-- [x] /gg
-- [ ] /help
-- [x] /html
-- [ ] /image
-- [ ] /img
-- [x] /info
-- [x] /koen
-- [x] /leave
-- [x] /length
-- [x] /map
-- [x] /markdown
-- [x] /papago
-- [x] /pick
-- [x] /ping
-- [x] /ratio
-- [ ] /run
-- [x] /search
-- [x] /status
-- [ ] /spell
-- [ ] /start
-- [ ] /system
-- [x] /translate
-- [ ] /unixtime
-- [x] /weather
-- [x] /youtube
+- ChalkPE [@ChalkPE](https://github.com/ChalkPE)
+- Asterisk [@Asterisk-Git](https://github.com/Asterisk-Git)
+- 연컴 [@yeoncomi](https://github.com/yeoncomi)
+- Greenscreen [@GreenscreenKorea](https://github.com/GreenscreenKorea)
+- Redscreen [@jeongjy0317](https://github.com/jeongjy0317)
+- Lee Oliver [@qtwyeuritoiy](https://github.com/qtwyeuritoiy)
+- Organic [@organization](https://github.com/organization) 그룹
+- IT People 그룹
+- 개발자 수다방 그룹
+- 앵무 그룹
+- 키사모 그룹
+- 덕후방 그룹
