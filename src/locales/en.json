@@ -1,35 +1,35 @@
 {
-    "error": "무엥",
+    "error": "Oops!!",
     "google": {
-        "emptyResponse": "I cannot connect to the search engine!",
+        "emptyResponse": "I cannot connect to the Search Engine!",
         "resultsBelow": "The search result is smaller than I expected!",
-        "question": "Please enter what you want to search in Google!",
-        "changeKorean": "I changed the results to Korean!"
+        "question": "Please enter the search word in Google!",
+        "changeKorean": "Changed to Korean!"
     },
     "get": {
-        "question": "Please enter the message ID!",
+        "question": "Please enter the Message ID!",
         "error": "It is not a number, or exceeds the ID limit!",
         "bring": "번 메시지 가져왔어요!",
         "notFound": "번 메시지를 찾을 수 없어요!"
     },
     "image": {
         "question": "Please enter an image search word!",
-        "error": "Oops! I cannot find the image!"
+        "error": "Aww... Cannot find an image!"
     },
     "ping": {
-        "question": "It's ping!\nPlease enter an IP or a Domain!",
-        "error": "It is not an IPv4 or a Domain!"
+        "question": "It's Ping!\nPlease enter IP or Domain!",
+        "error": "It's not IPv4 or Domain!"
     },
     "calc": {
         "question": "Please enter the expression!",
-        "error": "Something is wrong with the result!"
+        "error": "Ouch... The calculation result is strange!"
     },
     "dday": {
-        "question": "Please enter the date as below!\nex) <code>2018 01 01</code>",
+        "question": "Please enter the date according to this format!\nex) <code>2018 01 01</code>",
         "error": "Looks like it's not a date!",
-        "today": "Today!",
-        "past": "day(s) have past!",
-        "future": "day(s) left!"
+        "today": "It's Today!",
+        "past": "Days passed!",
+        "future": "Days remaining!"
     },
     "currency": {
         "help": "Please command with the name of currency and the multiple!\nex) /currency KRW 10000",
@@ -41,12 +41,12 @@
         "error": "No translation results!"
     },
     "admins": {
-        "error": "You can only use it in a group!"
+        "error": "Can only be used in groups!"
     },
     "ratio": {
         "question": "Please enter two numbers!",
-        "error": "Something is wrong!",
-        "errorLimit": "The number exceeds the calculation limit!"
+        "error": "Ouch... Wrong value!",
+        "errorLimit": "Sadly, caculation range was exceeded!"
     },
     "dice": {
         "question": "Please enter two or more words! 🎲"
@@ -59,13 +59,13 @@
         "questionAddr": "Please enter an address!",
         "questionPlace": "Please enter a place!",
         "errorAddr": "I cannot find the address!",
-        "errorCoord": "I cannot find the coord!",
-        "errorPlace": "I cannot find the place!",
-        "errorLocation": "I cannot find the GPS signal!"
+        "errorCoord": "I cannot find the coordinate!",
+        "errorPlace": "I cannot find the location!",
+        "errorLocation": "I Can't detect GPS Signal!"
     },
     "weather": {
-        "question": "Please enter the address!",
-        "error": "No result. If the place is outside Korea, please enter the name in English!",
+        "question": "Please enter Korea or Foreign address!",
+        "error": "Aww.. No result! Enter in english when it's Foreign address!",
         "errorRequest": "I cannot connect to the weather server!"
     },
     "contact": {
@@ -76,7 +76,7 @@
         "permission": "Permission denied."
     },
     "length": {
-        "question": "Please enter a string you want to measure!",
+        "question": "Please enter a value to measure the length!",
         "error": "I cannot measure the length!"
     },
     "html": {
@@ -97,15 +97,15 @@
     "code": {
         "question": "Please enter the code!",
         "error": "",
-        "onlyText": "Only texts are supported!",
+        "onlyText": "Only text is supported!",
         "replyOnly": "This command is for reply only! Please write it on a reply!"
     },
     "enko": {
-        "question": "Please enter a string to convert!",
-        "onlyText": "Only texts are supported!"
+        "question": "Please enter the value to convert!",
+        "onlyText": "Only text is supported!"
     },
     "koen": {
-        "question": "Please enter a string to convert!",
+        "question": "Please enter the value to convert!",
         "errorInput": "Please enter Korean only with a form of choseong+jungseong or choseong+jungseong+jongseong!"
     },
     "decode": {
@@ -116,7 +116,7 @@
         "replyOnly": "This command is for reply only! Please write it on a reply!"
     },
     "run": {
-        "question": "언어와 코드를 입력해주세요!",
+        "question": "Enter the language and code!",
         "language": "assembly, ats, bash, c, clojure, cobol, coffeescript, cpp, crystal, csharp, d, elixir, elm, erlang, fsharp, go, groovy, haskell, idris, java, javascript, julia, kotlin, lua, mercury, nim, ocaml, perl, perl6, php, python, ruby, rust, scala, swift, typescript"
     }
 }
