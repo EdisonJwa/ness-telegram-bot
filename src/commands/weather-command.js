@@ -8,7 +8,7 @@ const TIMEOUT = config.TIMEOUT
 
 module.exports = (bot) => {
   // Question Command
-  const rQuestion = new RegExp('^/(weather|날씨)(@' + BOT_NAME + ')?$', 'i')
+  const rQuestion = new RegExp(`^/(weather|날씨)(@${BOT_NAME})?$`, 'i')
   bot.onText(rQuestion, async (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
@@ -65,7 +65,7 @@ module.exports = (bot) => {
   })
 
   // Query Command
-  const rQuery = new RegExp('^/(weather|날씨)(@' + BOT_NAME + ')?\\s+([\\s\\S]+)', 'i')
+  const rQuery = new RegExp(`^/(weather|날씨)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
   bot.onText(rQuery, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return

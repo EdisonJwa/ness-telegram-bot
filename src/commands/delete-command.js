@@ -5,7 +5,7 @@ const TIMEOUT = config.TIMEOUT
 const ADMIN_ID = config.ADMIN_ID
 
 module.exports = (bot) => {
-  const deleteRegex = new RegExp('^/(delete|삭제|지워)(@' + BOT_NAME + ')?$', 'i')
+  const deleteRegex = new RegExp(`^/(delete|삭제|지워)(@${BOT_NAME})?$`, 'i')
   bot.onText(deleteRegex, (msg, match) => {
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return

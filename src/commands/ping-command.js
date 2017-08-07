@@ -7,7 +7,7 @@ const TIMEOUT = config.TIMEOUT
 
 const getHTML = (results) => {
   const output = `<code>Host :</code> ${results.numeric_host || 'None'}
-<code>Alive:</code> ${results.alive || 'None'}
+<code>Alive:</code> ${results.alive || 'Unknown'}
 <code>Time :</code> ${!isNaN(parseFloat(results.time)) ? parseFloat(results.time) + 'ms' : 'None'}
 <code>Min  :</code> ${!isNaN(parseFloat(results.min)) ? parseFloat(results.min) + 'ms' : 'None'}
 <code>Max  :</code> ${!isNaN(parseFloat(results.max)) ? parseFloat(results.max) + 'ms' : 'None'}

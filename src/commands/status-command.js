@@ -49,7 +49,7 @@ module.exports = (bot, commands) => {
         const check = [[]]
 
         for (const [i, command] of commands.entries()) {
-          if (command && (command.cmd && command.toggle)) {
+          if (command && command.cmd) {
             if (command.toggle === true) {
               if ((i + 1) % 2 === 0) {
                 check[check.length - 1] = check[check.length - 1].concat(['✅', '/' + command.cmd])
