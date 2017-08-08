@@ -4,16 +4,22 @@
 
 const glob = require('glob-promise')
 const path = require('path')
+const logger = require('./lib/logger')
 const TelegramBot = require('node-telegram-bot-api')
 
 const config = require('./config')
 const ADMIN_ID = config.ADMIN_ID
+const TOKEN = config.BOT_TOKEN
 const BOT_NAME = config.BOT_NAME
 
-const bot = new TelegramBot(config.BOT_TOKEN, { polling: true })
+// '=========================================================================';
+// Bot Initialization
+// '=========================================================================';
 
-console.log(`Bot Starting @${BOT_NAME}!\n`)
+const bot = new TelegramBot(TOKEN, { polling: true })
 bot.sendMessage(ADMIN_ID, Date())
+
+logger.info(`Bot Starting @${BOT_NAME}!\n`)
 
 // '=========================================================================';
 // Event Hooking

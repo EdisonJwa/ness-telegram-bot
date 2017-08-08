@@ -2,9 +2,12 @@ const uuid = require('uuid')
 const youtube = require('../modules/youtube')
 const config = require('../config')
 const speech = require('../speech')
+const logger = require('../lib/logger')
 
 const CACHE_TIMEOUT = config.CACHE_TIMEOUT
 const option = { cache_time: CACHE_TIMEOUT }
+
+const thanConvert = (str) => str ? String(str).replace('<', '&lt;').replace('>', '&gt;') : ''
 
 module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
@@ -12,21 +15,27 @@ module.exports = (bot) => {
     if (regex.test(msg.query)) {
       const query = msg.query.match(regex)[2].trim()
 
-      youtube(query).then(data => {
+      youtube(query).then(videos => {
         const result = []
-        for (const item of data) {
+        for (const video of videos) {
+          const messageText = `<strong>${thanConvert(video.channel)}</strong>:\n<a href="${video.url}">${thanConvert(video.title)}</a>`
           result.push({
             'type': 'video',
             'id': uuid.v4(),
-            'video_url': item.url,
+            'video_url': video.url,
             'mime_type': 'text/html',
-            'thumb_url': item.thumbnail,
-            'title': item.title
+            'thumb_url': video.thumbnail,
+            'title': video.title,
+            'description': video.description,
+            'input_message_content': {
+              'message_text': messageText,
+              'parse_mode': 'html'
+            }
           })
         }
 
         bot.answerInlineQuery(msg.id, result, option).catch(err => {
-          console.error(err.message)
+          logger.error(err.message)
         })
       }).catch(() => {
         const title = speech.youtube.error
@@ -39,7 +48,7 @@ module.exports = (bot) => {
         }]
 
         bot.answerInlineQuery(msg.id, result, option).catch(err => {
-          console.error(err.message)
+          logger.error(err.message)
         })
       })
     }

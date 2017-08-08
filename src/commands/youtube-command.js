@@ -2,6 +2,7 @@ const _ = require('underscore')
 const youtube = require('../modules/youtube')
 const config = require('../config')
 const speech = require('../speech')
+const logger = require('../lib/logger')
 
 const BOT_NAME = config.BOT_NAME
 const TIMEOUT = config.TIMEOUT
@@ -34,14 +35,16 @@ module.exports = (bot) => {
 
         youtube(query).then(data => {
           const video = _.shuffle(data)[0]
-          const result = `<a href="${video.url}">${thanConvert(video.title)}</a>`
+          const result = `<strong>${thanConvert(video.channel)}</strong>:\n<a href="${video.url}">${thanConvert(video.title)}</a>`
 
           bot.sendChatAction(chatId, 'typing')
-          bot.sendMessage(chatId, result, options).catch(() => {
+          bot.sendMessage(chatId, result, options).catch(err => {
+            logger.error(err.message)
             bot.sendChatAction(chatId, 'typing')
             bot.sendMessage(chatId, speech.error, options)
           })
-        }).catch(() => {
+        }).catch(err => {
+          logger.error(err.message)
           bot.sendChatAction(chatId, 'typing')
           bot.sendMessage(chatId, speech.youtube.error, options)
         })
