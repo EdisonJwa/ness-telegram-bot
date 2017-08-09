@@ -10,7 +10,7 @@ const USER_AGENT = config.USER_AGENT
 /**
  * If you pass the query, return the image array
  * @param {String} query Search Word
- * @returns {Promise<Array, Object>}
+ * @returns {Promise}
  */
 const img = (query) => {
   return new Promise(async (resolve, reject) => {
@@ -43,7 +43,7 @@ const img = (query) => {
 /**
  * If you pass the query, return the image array
  * @param {String} query Search Word
- * @returns {Promise<Array, Object>}
+ * @returns {Promise}
  */
 const image = (query) => {
   return new Promise(async (resolve, reject) => {
@@ -76,7 +76,7 @@ const image = (query) => {
 /**
  * If you pass the image url, return the { text, url }
  * @param {String} url Image URL
- * @returns {Promise<Object, Object>}
+ * @returns {Promise}
  */
 const search = (image) => {
   return new Promise(async (resolve, reject) => {
