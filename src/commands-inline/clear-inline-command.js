@@ -1,19 +1,22 @@
 const uuid = require('uuid')
+const locale = require('../lib/locale')
+const logger = require('../lib/logger')
 
 module.exports = (bot) => {
   bot.on('inline_query', (msg) => {
-    const rClear = /^(clear|청소)$/i
+    locale.locale = msg.from.language_code
+    const rClear = /^\/(clear|cls|ㅊㅅ|청소)$/i
     if (rClear.test(msg.query)) {
-      let output = '지우는 중...\n'
+      const output = []
 
+      output.push(locale.__('clear.clearing'))
       for (let i = 0; i < 45; i++) {
-        output += '\n'
+        output.push('\n')
       }
+      output.push(locale.__('clear.cleared'))
 
-      output += '지웠다!'
-
-      const title = '청소'
-      const messageText = output
+      const title = locale.__('clear.title')
+      const messageText = output.join('\n')
       const result = [{
         'type': 'article',
         'id': uuid.v4(),
@@ -21,9 +24,11 @@ module.exports = (bot) => {
         'message_text': messageText
       }]
 
-      bot.answerInlineQuery(msg.id, result).catch(() => {
-        // Nothing
-      })
+      try {
+        bot.answerInlineQuery(msg.id, result)
+      } catch (err) {
+        logger.error(err.message)
+      }
     }
   })
 }
