@@ -33,6 +33,11 @@
     "dice": {
         "question": "Please enter two or more words! 🎲"
     },
+    "dont_click": [
+        "Please stop!",
+        "It's hard!",
+        "I am working!"
+    ],
     "enko": {
         "onlyText": "Only text is supported!",
         "question": "Please enter the character to convert!"
@@ -55,8 +60,9 @@
         "question": "Please enter the <a href=\"https://core.telegram.org/bots/api#html-style\">HTML</a> code!"
     },
     "image": {
-        "error": "Aww... Cannot find an image!",
-        "question": "Please enter the image search word!"
+        "error": "Cannot find an image!",
+        "question": "Please enter the image search word!",
+        "sent": "\"%s\" sent it!"
     },
     "koen": {
         "errorInput": "Please enter Korean only with a form of choseong+jungseong or choseong+jungseong+jongseong!",
