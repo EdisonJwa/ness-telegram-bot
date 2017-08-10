@@ -1,14 +1,21 @@
+/**
+ * @file enko-command.js
+ * @author Nesffer <nesffer.jimin@gmail.com>
+ */
+
 const gksdud = require('gksdud')
 const config = require('../config')
-const speech = require('../speech')
+const locale = require('../lib/locale')
+const logger = require('../lib/logger')
 
 const BOT_NAME = config.BOT_NAME
 const TIMEOUT = config.TIMEOUT
 
 module.exports = (bot) => {
   // Question Command
-  const rQuestion = new RegExp(`^/(enko|dudgks|영한|e)(@${BOT_NAME})?$`, 'i')
-  bot.onText(rQuestion, (msg, match) => {
+  const rQuestion = new RegExp(`^/(e|enko|dudgks|영한)(@${BOT_NAME})?$`, 'i')
+  bot.onText(rQuestion, async (msg, match) => {
+    locale.locale = msg.from.language_code
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
@@ -26,41 +33,58 @@ module.exports = (bot) => {
         const text = reply.text
         const hangul = gksdud(text)
 
-        bot.sendMessage(chatId, hangul, option)
+        try {
+          bot.sendChatAction(chatId, 'typing')
+          bot.sendMessage(chatId, hangul, option)
+        } catch (err) {
+          logger.error(err.message)
+          bot.sendChatAction(chatId, 'typing')
+          bot.sendMessage(chatId, locale.__('error'), option)
+        }
       } else {
-        bot.sendMessage(chatId, speech.enko.onlyText, option)
+        bot.sendChatAction(chatId, 'typing')
+        bot.sendMessage(chatId, locale.__('enko.onlyText'), option)
       }
     } else {
-      bot.sendMessage(chatId, speech.enko.question, options).then(sent => {
-        const messageId = sent.message_id
-        const chatId = sent.chat.id
-        bot.onReplyToMessage(chatId, messageId, (message) => {
+      try {
+        bot.sendChatAction(chatId, 'typing')
+        const sent = await bot.sendMessage(chatId, locale.__('enko.question'), options)
+        bot.onReplyToMessage(sent.chat.id, sent.message_id, (message) => {
           const messageId = message.message_id
           const text = message.text
-          const hangul = gksdud(text)
           const option = { reply_to_message_id: messageId }
+          const hangul = gksdud(text)
 
-          bot.sendMessage(chatId, hangul, option).catch(() => {
-            bot.sendMessage(chatId, speech.error, option)
-          })
+          bot.sendChatAction(chatId, 'typing')
+          bot.sendMessage(chatId, hangul, option)
         })
-      })
+      } catch (err) {
+        logger.error(err.message)
+        bot.sendChatAction(chatId, 'typing')
+        bot.sendMessage(chatId, locale.__('error'), option)
+      }
     }
   })
 
   // Query Command
-  const rQuery = new RegExp(`^/(enko|dudgks|영한|e)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
+  const rQuery = new RegExp(`^/(e|enko|dudgks|영한)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
   bot.onText(rQuery, (msg, match) => {
+    locale.locale = msg.from.language_code
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
     const chatId = msg.chat.id
     const text = match[3]
-    const dubeol = gksdud(text)
+    const hangul = gksdud(text)
     const option = { reply_to_message_id: messageId }
 
-    bot.sendMessage(chatId, dubeol, option).catch(() => {
-      bot.sendMessage(chatId, speech.error, option)
-    })
+    try {
+      bot.sendChatAction(chatId, 'typing')
+      bot.sendMessage(chatId, hangul, option)
+    } catch (err) {
+      logger.error(err.message)
+      bot.sendChatAction(chatId, 'typing')
+      bot.sendMessage(chatId, locale.__('error'), option)
+    }
   })
 }
