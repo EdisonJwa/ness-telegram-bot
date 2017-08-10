@@ -1,9 +1,13 @@
+/**
+ * @file google-image.js
+ * @author Nesffer <nesffer.jimin@gmail.com>
+ */
+
 const request = require('request-promise-native')
 const cheerio = require('cheerio')
 const Entities = require('html-entities').XmlEntities
 const entities = new Entities()
 const config = require('../config')
-const speech = require('../speech')
 
 const USER_AGENT = config.USER_AGENT
 
@@ -32,10 +36,10 @@ const img = (query) => {
       if (items.length > 0) {
         resolve(items)
       } else {
-        reject(new Error(speech.image.error))
+        reject(new Error('Cannot find an image!'))
       }
     } catch (e) {
-      reject(new Error(speech.image.error))
+      reject(new Error('Cannot find an image!'))
     }
   })
 }
@@ -65,10 +69,43 @@ const image = (query) => {
       if (items.length > 0) {
         resolve(items)
       } else {
-        reject(new Error(speech.image.error))
+        reject(new Error('Cannot find an image!'))
       }
     } catch (e) {
-      reject(new Error(speech.image.error))
+      reject(new Error('Cannot find an image!'))
+    }
+  })
+}
+
+/**
+ * If you pass the query, return the gif image array
+ * @param {String} query Search Word
+ * @returns {Promise}
+ */
+const gif = (query) => {
+  return new Promise(async (resolve, reject) => {
+    const url = 'https://www.google.co.jp/search?tbm=isch&tbs=ift:gif&q=' + encodeURIComponent(query)
+    const options = {
+      url,
+      headers: { 'User-Agent': USER_AGENT }
+    }
+
+    try {
+      const body = await request(options)
+      const items = []
+      const $ = await cheerio.load(body)
+      await $('div[class="rg_meta notranslate"]').each((i, item) => {
+        const json = JSON.parse(entities.decode($(item).html()))
+        if (items.length < 50) items.push({ 'ru': json.ru, 'ou': json.ou, 'tu': json.tu })
+      })
+
+      if (items.length > 0) {
+        resolve(items)
+      } else {
+        reject(new Error('Cannot find an image!'))
+      }
+    } catch (e) {
+      reject(new Error('Cannot find an image!'))
     }
   })
 }
@@ -98,15 +135,16 @@ const search = (image) => {
       if (text && url) {
         resolve({ text, url })
       } else {
-        reject(new Error(speech.image.error))
+        reject(new Error('Cannot find an image!'))
       }
     } catch (e) {
       console.log(e)
-      reject(new Error(speech.image.error))
+      reject(new Error('Cannot find an image!'))
     }
   })
 }
 
 module.exports.img = img
 module.exports.image = image
+module.exports.gif = gif
 module.exports.search = search

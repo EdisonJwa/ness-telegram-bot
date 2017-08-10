@@ -1,20 +1,23 @@
+/**
+ * @file image-command.js
+ * @author Nesffer <nesffer.jimin@gmail.com>
+ */
+
 const _ = require('underscore')
 const googleImage = require('../modules/google-image')
 const config = require('../config')
-const speech = require('../speech')
 const locale = require('../lib/locale')
 const logger = require('../lib/logger')
 
 const BOT_NAME = config.BOT_NAME
 const TIMEOUT = config.TIMEOUT
-const errMessage = speech.image.error  // Fail Alert
-const alert = ['그만 좀 눌러요!', '빼애액!', '자꾸 누르면 힘들어요!']
 const button = { url: '🌏', inline: '🔍', more: '🖼' }
 
 module.exports = (bot) => {
   // Question Command
   const rQuestion = new RegExp(`^/(img|image|ㅉ|짤|ㄸ|딸|ㅇㅁㅈ|이미지|ㅅㅈ|사진)(@${BOT_NAME})?$`, 'i')
   bot.onText(rQuestion, async (msg, match) => {
+    locale.locale = msg.from.language_code
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const chatId = msg.chat.id
@@ -26,20 +29,17 @@ module.exports = (bot) => {
     }
 
     try {
-      await bot.sendChatAction(chatId, 'typing')
-      const sent = await bot.sendMessage(chatId, speech.image.question, options)
+      bot.sendChatAction(chatId, 'typing')
+      const sent = await bot.sendMessage(chatId, locale.__('image.question'), options)
 
-      const sentMessageId = sent.message_id
-      const sentChatId = sent.chat.id
-      bot.onReplyToMessage(sentChatId, sentMessageId, async (message) => {
+      bot.onReplyToMessage(sent.chat.id, sent.message_id, async (message) => {
         const replyText = message.text
         const replyMessageId = message.message_id
         const replyOption = { reply_to_message_id: replyMessageId }
-        const sentMessage = `"${replyText}" 보냈어!`  // Success Alert
 
         if (!replyText) {
-          await bot.sendChatAction(sentChatId, 'typing')
-          await bot.sendMessage(sentChatId, 'Text 형식만 지원해!', replyOption)
+          bot.sendChatAction(chatId, 'typing')
+          bot.sendMessage(chatId, 'Text only!', replyOption)
         } else {
           googleImage.image(replyText).then(async (results) => {
             const images = _.shuffle(results)
@@ -47,9 +47,9 @@ module.exports = (bot) => {
             const options = {
               reply_markup: JSON.stringify({
                 inline_keyboard: [[
-                    { text: button.url, url: image.ru },
-                    { text: button.inline, switch_inline_query_current_chat: '/image ' + replyText },
-                    { text: button.more, callback_data: 'more' }
+                  { text: button.url, url: image.ru },
+                  { text: button.inline, switch_inline_query_current_chat: `/image ${replyText}` },
+                  { text: button.more, callback_data: 'more' }
                 ]]
               }),
               reply_to_message_id: replyMessageId
@@ -57,13 +57,14 @@ module.exports = (bot) => {
 
             let sent = {}
             try {
-              await bot.sendChatAction(sentChatId, 'upload_photo')
-              sent = await bot.sendPhoto(sentChatId, image.ou, options)
+              bot.sendChatAction(chatId, 'upload_photo')
+              sent = await bot.sendPhoto(chatId, image.ou, options)
             } catch (err) {
+              logger.error(locale.__('image.error'))
               const images = _.shuffle(results)
               const image = images[0]
-              await bot.sendChatAction(sentChatId, 'upload_photo')
-              sent = await bot.sendPhoto(sentChatId, image.ou, options)
+              bot.sendChatAction(chatId, 'upload_photo')
+              sent = await bot.sendPhoto(chatId, image.ou, options)
             }
 
             const queue = []  // Do not click multiple
@@ -86,57 +87,58 @@ module.exports = (bot) => {
                     }
 
                     try {
-                      await bot.sendChatAction(sentChatId, 'upload_photo')
-                      await bot.sendPhoto(sentChatId, image.ou, options)
-                      await bot.answerCallbackQuery(answer.id, sentMessage)
+                      bot.sendChatAction(chatId, 'upload_photo')
+                      await bot.sendPhoto(chatId, image.ou, options)
+                      await bot.answerCallbackQuery(answer.id, locale.__('image.sent'))
                       queue.splice(0, queue.length)  // Flush
                     } catch (err) {
+                      logger.error(locale.__('image.error'))
                       const images = _.shuffle(results)
                       const image = images[0]
-                      await bot.sendChatAction(sentChatId, 'upload_photo')
-                      await bot.sendPhoto(sentChatId, image.ou, options)
-                      await bot.answerCallbackQuery(answer.id, sentMessage)
+                      bot.sendChatAction(chatId, 'upload_photo')
+                      await bot.sendPhoto(chatId, image.ou, options)
+                      await bot.answerCallbackQuery(answer.id, locale.__('image.sent'))
                       queue.splice(0, queue.length)  // Flush
                     }
                   } catch (err) {  // Fail sendPhoto()
-                    logger.error(errMessage)
-                    bot.answerCallbackQuery(answer.id, errMessage)
+                    logger.error(locale.__('image.error'))
+                    bot.answerCallbackQuery(answer.id, locale.__('image.error'))
                     queue.splice(0, queue.length)  // Flush
                   }
                 } else {
-                  bot.answerCallbackQuery(answer.id, _.shuffle(alert)[0])  // Do not click multiple
+                  bot.answerCallbackQuery(answer.id, _.shuffle(locale.__('dont_click'))[0])  // Do not click multiple
                 }
               }
             })
           }).catch(async (err) => {  // Fail googleImage.image()
             logger.error(err.message)
             try {
-              await bot.sendChatAction(sentChatId, 'typing')
-              await bot.sendMessage(sentChatId, err.message, replyOption)
+              bot.sendChatAction(chatId, 'typing')
+              await bot.sendMessage(chatId, err.message, replyOption)
             } catch (err) {
               logger.error(err.message)
-              await bot.sendChatAction(sentChatId, 'typing')
-              await bot.sendMessage(sentChatId, errMessage, replyOption)
+              bot.sendChatAction(chatId, 'typing')
+              await bot.sendMessage(chatId, locale.__('image.error'), replyOption)
             }
           })
         }
       })
     } catch (err) {  // Fail sendMessage()
       logger.error(err.message)
-      await bot.sendChatAction(chatId, 'typing')
-      await bot.sendMessage(chatId, errMessage, options)
+      bot.sendChatAction(chatId, 'typing')
+      await bot.sendMessage(chatId, locale.__('image.error'), options)
     }
   })
 
   // Query Command
   const rQuery = new RegExp(`^/(img|image|ㅉ|짤|ㄸ|딸|ㅇㅁㅈ|이미지|ㅅㅈ|사진)(@${BOT_NAME})?\\s+([\\s\\S]+)`, 'i')
   bot.onText(rQuery, (msg, match) => {
+    locale.locale = msg.from.language_code
     const time = Date.now() / 1000
     if (time - msg.date > TIMEOUT) return
     const messageId = msg.message_id
     const chatId = msg.chat.id
     const text = match[3]
-    const sentMessage = `"${text}" 보냈어!`  // 성공 알림메시지
     const option = { reply_to_message_id: messageId }
 
     googleImage.image(text).then(async (results) => {
@@ -155,12 +157,13 @@ module.exports = (bot) => {
 
       let sent = {}
       try {
-        await bot.sendChatAction(chatId, 'upload_photo')
+        bot.sendChatAction(chatId, 'upload_photo')
         sent = await bot.sendPhoto(chatId, image.ou, options)
       } catch (err) {
+        logger.error(locale.__('image.error'))
         const images = _.shuffle(results)
         const image = images[0]
-        await bot.sendChatAction(chatId, 'upload_photo')
+        bot.sendChatAction(chatId, 'upload_photo')
         sent = await bot.sendPhoto(chatId, image.ou, options)
       }
 
@@ -184,37 +187,38 @@ module.exports = (bot) => {
               }
 
               try {
-                await bot.sendChatAction(chatId, 'upload_photo')
+                bot.sendChatAction(chatId, 'upload_photo')
                 await bot.sendPhoto(chatId, image.ou, options)
-                await bot.answerCallbackQuery(answer.id, sentMessage)
+                await bot.answerCallbackQuery(answer.id, locale.__('image.sent', text))
                 queue.splice(0, queue.length)  // Flush
               } catch (err) {
+                logger.error(locale.__('image.error'))
                 const images = _.shuffle(results)
                 const image = images[0]
-                await bot.sendChatAction(chatId, 'upload_photo')
+                bot.sendChatAction(chatId, 'upload_photo')
                 await bot.sendPhoto(chatId, image.ou, options)
-                await bot.answerCallbackQuery(answer.id, sentMessage)
+                await bot.answerCallbackQuery(answer.id, locale.__('image.sent', text))
                 queue.splice(0, queue.length)  // Flush
               }
             } catch (err) {  // Fail sendPhoto()
-              logger.error(errMessage)
-              bot.answerCallbackQuery(answer.id, errMessage)
+              logger.error(locale.__('image.error'))
+              bot.answerCallbackQuery(answer.id, locale.__('image.error'))
               queue.splice(0, queue.length)  // Flush
             }
           } else {
-            bot.answerCallbackQuery(answer.id, _.shuffle(alert)[0])  // Do not click multiple
+            bot.answerCallbackQuery(answer.id, _.shuffle(locale.__('dont_click'))[0])  // Do not click multiple
           }
         }
       })
     }).catch(async (err) => {  // Fail googleImage.image()
       logger.error(err.message)
       try {
-        await bot.sendChatAction(chatId, 'typing')
+        bot.sendChatAction(chatId, 'typing')
         await bot.sendMessage(chatId, err.message, option)
       } catch (err) {
         logger.error(err.message)
-        await bot.sendChatAction(chatId, 'typing')
-        await bot.sendMessage(chatId, errMessage, option)
+        bot.sendChatAction(chatId, 'typing')
+        await bot.sendMessage(chatId, locale.__('image.error'), option)
       }
     })
   })

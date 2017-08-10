@@ -1,6 +1,13 @@
+/**
+ * @file image-inline-command.js
+ * @author Nesffer <nesffer.jimin@gmail.com>
+ */
+
 const uuid = require('uuid')
 const _ = require('underscore')
 const googleImage = require('../modules/google-image')
+const locale = require('../lib/locale')
+const logger = require('../lib/logger')
 
 const button = { url: '🌏', inline: '🔍', more: '🖼' }
 
@@ -34,17 +41,16 @@ module.exports = (bot) => {
 
         bot.answerInlineQuery(msg.id, photos)
       }).catch(err => {
-        const title = 'Error! 찾을 수 없습니다.'
-        const messageText = err.message
-        const options = [
-          {
-            'type': 'article',
-            'id': uuid.v4(),
-            'title': title,
-            'message_text': messageText,
-            'parse_mode': 'html'
-          }
-        ]
+        logger.error(err.message)
+        const title = locale.__('image.error')
+        const messageText = locale.__('image.error')
+        const options = [{
+          'type': 'article',
+          'id': uuid.v4(),
+          'title': title,
+          'message_text': messageText,
+          'parse_mode': 'html'
+        }]
 
         bot.answerInlineQuery(msg.id, options)
       })
