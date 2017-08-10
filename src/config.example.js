@@ -1,4 +1,5 @@
 module.exports = {
+  NODE_ENV: process.env.NODE_ENV || 'development',
   ADMIN_ID: 10000000,
   ADMIN_NAME: '',
   BOT_TOKEN: process.env.BOT_TOKEN || '',
